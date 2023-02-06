@@ -2,12 +2,16 @@ import utilitaire_gen_Q as util_r5
 # Q1 Ce petit script demande l'âge de la personne et imprime sa date de naissance.
 # La fonction input() retourne une valeur en string.
 # Ajouter un test conditionnel sur l'input qui :
-#                      -imprime "ERREUR - âge non-valide" si la valeur entrée n'est pas un chiffre entier 
+#                      -imprime "ERREUR - âge non-valide" si la valeur d'entrée n'est pas un chiffre entier 
 #                      -et qui convertie l'input en int si possible. 
 # Indice : pour pouvez utiliser la fonction  dir(str)  pour obtenir toutes les méthodes
-# des objets str... une de ces méthodes devrait vous aider... vous ne trouverez pas la méthode exact dans vos notes de cours. 
+# des objets str... une de ces méthodes devrait vous aider... vous ne trouverez pas la méthode exacte dans vos notes de cours. 
 print(f"Q1{80*'_'}")
 age = input("Entrez votre age : ")
+if age != int(age):
+    int(input("Entrez votre age : "))
+
+
 
 
 
