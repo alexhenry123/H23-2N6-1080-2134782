@@ -13,7 +13,6 @@ if input != int():
 elif input == int():
     print(util_r5.annee_de_naissance(age))
 
-
 # # Q2 Des variables sont générées par une fonction dans un module utilitaire.
 # # Imprivez la valeur de chaque variable et son type
 print(f"Q2{80*'_'}")
