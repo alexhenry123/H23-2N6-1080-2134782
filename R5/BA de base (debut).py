@@ -27,7 +27,7 @@ print(f"Le total est : {total}")
 
 # Pour avoir la moyenne de tous les chiffres de la liste de chiffres
 moyenne = total / len(list_chiffres)-1
-print(moyenne)
+print(f"Voici la moyenne des chiffres de la liste des chiffres : {moyenne}")
 
 
 # Pour imprimer seulement les chiffres qui sont supérieurs à 50

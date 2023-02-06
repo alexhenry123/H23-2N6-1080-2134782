@@ -8,23 +8,14 @@ import utilitaire_gen_Q as util_r5
 # des objets str... une de ces méthodes devrait vous aider... vous ne trouverez pas la méthode exacte dans vos notes de cours. 
 print(f"Q1{80*'_'}")
 age = input("Entrez votre age : ")
-if age != int(age):
-    int(input("Entrez votre age : "))
+if input != int():
+    str(input("Entrez votre age : "))
+elif input == int():
+    print(util_r5.annee_de_naissance(age))
 
 
-
-
-
-
-print(util_r5.annee_de_naissance(age)) # imprime l'année de naissance si age est bien un int.
-
-
-
-# # Q2 Des variables sont générés par une fonction dans un module utilitaire.
+# # Q2 Des variables sont générées par une fonction dans un module utilitaire.
 # # Imprivez la valeur de chaque variable et son type
 print(f"Q2{80*'_'}")
 var1,var2,var3,var4,var5,var6 = util_r5.generation_variable()
 
-
-
-#
