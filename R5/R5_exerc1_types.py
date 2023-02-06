@@ -1,3 +1,5 @@
+from dataclasses import dataclass
+from tkinter.tix import INTEGER
 import utilitaire_gen_Q as util_r5
 # Q1 Ce petit script demande l'âge de la personne et imprime sa date de naissance.
 # La fonction input() retourne une valeur en string.
@@ -8,10 +10,10 @@ import utilitaire_gen_Q as util_r5
 # des objets str... une de ces méthodes devrait vous aider... vous ne trouverez pas la méthode exacte dans vos notes de cours. 
 print(f"Q1{80*'_'}")
 age = input("Entrez votre age : ")
-if input != int():
-    str(input("Entrez votre age : "))
-elif input == int():
+if age == int():
     print(util_r5.annee_de_naissance(age))
+else:
+    print ("ERREUR - Âge non valide")
 
 # # Q2 Des variables sont générées par une fonction dans un module utilitaire.
 # # Imprivez la valeur de chaque variable et son type
