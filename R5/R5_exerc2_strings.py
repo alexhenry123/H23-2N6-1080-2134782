@@ -35,7 +35,7 @@ for i in liste_employee:
 print(f"Q2{80*'_'}")
 texte = input("Entrez texte : ")
 texte_split = texte.split(' ')
-if texte[8]:
+if texte_split[1] and texte_split[0] and :
     
     
 
