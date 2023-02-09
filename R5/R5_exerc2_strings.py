@@ -27,13 +27,12 @@ for i in liste_employee:
 #                        "Attention au niveau du texte" s'il y a 2 mots et plus
 # Vous allez devoir faire un .split() sur le texte obtenu pour avoir chaque mot dans une liste.
 print(f"Q2{80*'_'}")
-# texte = input("Entrez du texte : ")
-# texte_split = texte.split(' ')
+texte = input("Entrez du texte : ")
 for employe in liste_employee:
-    #print(employe)
-#if texte_split[1] and texte_split[0]:
-
-    pass
+    ligne_splitees = employe.split(' ')
+    
+    if ligne_splitees[1] and ligne_splitees[0]:
+        pass
 
 
 
