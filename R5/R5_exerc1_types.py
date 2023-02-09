@@ -1,3 +1,5 @@
+from curses.ascii import isdigit
+import numbers
 from sre_compile import isstring
 import utilitaire_gen_Q as util_r5
 # Q1 Ce petit script demande l'âge de la personne et imprime sa date de naissance.
@@ -9,11 +11,10 @@ import utilitaire_gen_Q as util_r5
 # des objets str... une de ces méthodes devrait vous aider... vous ne trouverez pas la méthode exacte dans vos notes de cours. 
 print(f"Q1{80*'_'}")
 age = input("Entrez votre âge : ")
-age = int(age)
-if age >= 0 and age <= 120:
-    print(util_r5.annee_de_naissance(age))
-else:
+if age == isstring:
     print ("ERREUR - Âge non valide")
+elif age == isdigit:
+    print(util_r5.annee_de_naissance(age))    
 
 # # Q2 Des variables sont générées par une fonction dans un module utilitaire.
 # # Imprivez la valeur de chaque variable et son type
