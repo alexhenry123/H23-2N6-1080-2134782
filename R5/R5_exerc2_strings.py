@@ -16,6 +16,10 @@ print(f"Q1{80*'_'}")
 liste_employee = util_r5.liste_employes
 nouvelle_liste = list()
 for i in liste_employee:
+    lignes_lues = liste_employee.readlines()
+    lignes_separees = lignes_lues.split(' ')
+    nom_employe = lignes_separees[1]
+    
     
     
 
@@ -30,7 +34,10 @@ for i in liste_employee:
 # Vous allez devoir faire un .split() sur le texte obtenu pour avoir chaque mot dans une liste.
 print(f"Q2{80*'_'}")
 texte = input("Entrez texte : ")
-
+texte_split = texte.split(' ')
+if texte[8]:
+    
+    
 
 
 
