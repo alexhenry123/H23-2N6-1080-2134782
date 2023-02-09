@@ -21,7 +21,7 @@ for i in liste_employee:
     nom_employe = lignes_separees[1]
     
     
-    
+
 
 
 
@@ -35,14 +35,13 @@ for i in liste_employee:
 print(f"Q2{80*'_'}")
 texte = input("Entrez texte : ")
 texte_split = texte.split(' ')
-if texte_split[1] and texte_split[0] and :
-    
-    
+if texte_split[1] and texte_split[0]:
+    pass
 
 
 
 
-    
+
 #Q3 Cette question est semblable à la question précédante. Mais nous avons 3 messages que nous voulons afficher.
 # Nous voulons compter le nombre de mots dans un texte qui sont de 3 lettres ou moins, entre 4 et 7 lettres inclusivement et plus de 7 lettres.
 #Le message imprimé ressemblera à :
@@ -53,4 +52,4 @@ if texte_split[1] and texte_split[0] and :
 print(f"Q3{80*'_'}")
 
 
-        
+
