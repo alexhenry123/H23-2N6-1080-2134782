@@ -34,15 +34,24 @@ print(f"Q2: Premier chiffre de la liste: {liste_chiffres[0]}")
 # Vous devez ABSOLUMENT FAIRE un if...else...                                                                    #
 # Dans le terminal, si le premier chiffre était 50 par exemple,                                                  #
 #           la réponse serait: "Q3: Le chiffre 50 n'est pas supérieur ou égal à 100"                             #
-print(f"Q3{80*'_'}")
-
+print(f"{80*'_'}")
+premier_chiffre = liste_chiffres[0]
+if premier_chiffre >= 100:
+    print(f"Q3: Le chiffre {premier_chiffre} est supérieur ou égal à 100.")
+else:
+    print(f"Q3: Le chiffre {premier_chiffre} n'est pas supérieur ou égal à 100.")
+#
 # Q4                                                                                                             #
 # Faites le code pour afficher si le dernier nombre est inférieur à 300, égal à 300 ou, s'il est supérieur à 300
 # Faites un message approprié selon le cas. Vous DEVEZ utiliser le if... elif... else     #
 print(f"Q4{80*'_'}")
-
-
-
+dernier_chiffre = liste_chiffres[len(liste_chiffres)-1]
+if dernier_chiffre < 300:
+    print(f"Le dernier chiffre, {dernier_chiffre}, n'est pas supérieur à 300.")
+elif dernier_chiffre == 300:
+    print(f"Le dernier chiffre, {dernier_chiffre}, est égal à 300.")
+else:
+    print(f"Le dernier chiffre, {dernier_chiffre}, est supérieur à 300.")
 
 # Q5 Maintenant on va compter le nombre de chiffres inférieurs à 100 qu'il y a dans la liste
 #    Avant la boucle, initialisez votre compteur à 0
