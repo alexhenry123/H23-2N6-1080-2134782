@@ -19,27 +19,22 @@ for index in range(10):
 # 
 # Q1                                                                                                            #
 # Imprimez la liste générée ci-dessus
-# Dans le terminal la réponse commence par: " Q1: Voici la liste: ...."  #
-print(f"Q1{80*'_'}")
-
-
-
-
+# Dans le terminal la réponse commence par: " Q1: Voici la liste: ...."
+print(f"{80*'_'}")
+print(f"Q1: Voici la liste: {liste_chiffres}")
+#
 # Q2                                                                                                             #
 # Affichez le premier chiffre de votre liste                                                                     #
 # Dans le terminal la réponse doit être: "Q2: Premier chiffre de la liste: X."       X variant selon votre liste #
-print(f"Q2{80*'_'}")
-
-
-
+print(f"{80*'_'}")
+print(f"Q2: Premier chiffre de la liste: {liste_chiffres[0]}")
+#
 # Q3                                                                                                             #
 # Faites le code pour afficher si oui ou non le premier chiffre de la liste est supérieur ou égal à 100          #
 # Vous devez ABSOLUMENT FAIRE un if...else...                                                                    #
 # Dans le terminal, si le premier chiffre était 50 par exemple,                                                  #
 #           la réponse serait: "Q3: Le chiffre 50 n'est pas supérieur ou égal à 100"                             #
 print(f"Q3{80*'_'}")
-
-
 
 # Q4                                                                                                             #
 # Faites le code pour afficher si le dernier nombre est inférieur à 300, égal à 300 ou, s'il est supérieur à 300
