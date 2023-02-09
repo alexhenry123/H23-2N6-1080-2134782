@@ -15,6 +15,8 @@ if age == isstring:
     print ("ERREUR - Âge non valide")
 elif age == isdigit:
     print(util_r5.annee_de_naissance(age))    
+    
+#Ne compile pas tel que souhaité
 
 # # Q2 Des variables sont générées par une fonction dans un module utilitaire.
 # # Imprivez la valeur de chaque variable et son type
