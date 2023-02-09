@@ -15,17 +15,13 @@ import utilitaire_gen_Q as util_r5
 print(f"Q1{80*'_'}")
 liste_employee = util_r5.liste_employes
 nouvelle_liste = list()
-for i in liste_employee:
-    lignes_lues = liste_employee.readlines()
-    lignes_separees = lignes_lues.split(' ')
-    nom_employe = lignes_separees[1]
+with open (liste_employee, 'r'):
+    for i in liste_employee:
+        lignes_lues = liste_employee.readlines()
+print(lignes_lues)
+
     
     
-
-
-
-
-
 
 # Q2 Afin de s'assurer de garder un texte facile à écrire, faites un programme qui va prendre du texte en input()
 # puis qui va compter la longueur de chaque mot. Il va retourner le nombre de mots de plus de 9 lettres ainsi qu'un
