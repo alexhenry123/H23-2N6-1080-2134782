@@ -21,7 +21,7 @@ nouvelle_liste = list()
 
 
 # Q2 Afin de s'assurer de garder un texte facile à écrire, faites un programme qui va prendre du texte en input()
-# puis qui va compter la longueur de chaque mot. Il va retourner le nombre de mots de plus de 9lettres ainsi qu'un
+# puis qui va compter la longueur de chaque mot. Il va retourner le nombre de mots de plus de 9 lettres ainsi qu'un
 # message qui variera :  "Excellent" s'il y a moins de 2 mots dépassant 9 lettres
 #                        "Attention au niveau du texte" s'il y a 2 mots et plus
 # Vous allez devoir faire un .split() sur le texte obtenu pour avoir chaque mot dans une liste.
@@ -34,8 +34,8 @@ texte = input("Entrez texte : ")
 
     
 #Q3 Cette question est semblable à la question précédante. Mais nous avons 3 messages que nous voulons afficher.
-# Nous voulons comptez le nombre de mots dans un texte qui sont de 3 lettres ou moins, entre 4 et 7 lettres inclusivement et plus de 7 lettres.
-#Le message imprimez ressemblera à :
+# Nous voulons compter le nombre de mots dans un texte qui sont de 3 lettres ou moins, entre 4 et 7 lettres inclusivement et plus de 7 lettres.
+#Le message imprimé ressemblera à :
 #Votre texte contient : X mots de 3 lettres et moins
 #                       Y mots de 4 à 7 lettres
 #                       Z mots de 8 lettres et plus
