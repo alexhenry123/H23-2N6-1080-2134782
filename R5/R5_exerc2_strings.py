@@ -15,6 +15,9 @@ import utilitaire_gen_Q as util_r5
 print(f"Q1{80*'_'}")
 liste_employee = util_r5.liste_employes
 nouvelle_liste = list()
+for i in liste_employee:
+    
+    
 
 
 
