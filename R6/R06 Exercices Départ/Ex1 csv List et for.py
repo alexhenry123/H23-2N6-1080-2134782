@@ -7,7 +7,7 @@ os.chdir(os.path.dirname(__file__))   # Elles permettent de se positionner dans 
 
 
 # Importez csv
-
+import csv
 
  
 
@@ -16,11 +16,11 @@ os.chdir(os.path.dirname(__file__))   # Elles permettent de se positionner dans 
 #          Observez que dans ce fichier, la première ligne comprends les en-têtes de colonne 
 #                   Poste;Compagnie;Ville;Expérience;Diplôme;Salaire
 #          Certains champs ont la valeur "Non déterminé"
-#          C'est souvent pour ne pas passer à côté de candidats intéressants. Ils sont souvent ouverts à engager de jeunes diplomés
+#          C'est souvent pour ne pas passer à côté de candidats intéressants. Ils sont souvent ouverts à engager de jeunes diplômés
 
 #          Il vous faudra imprimer les informations des emplois demandant le Diplôme de 'Dec' ou ayant la valeur 'Non déterminé'
 # 
-#  Si vous êtes à l'aise en programmation allez-y
+#  Si vous êtes à l'aise en programmation, allez-y.
 #  Des instructions détaillées sont données plus bas
 
 
