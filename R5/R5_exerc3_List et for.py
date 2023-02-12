@@ -1,9 +1,8 @@
 import random
 
 # RAPPEL
-# dans l'interpréteur de python (dir(str)) #montre ce que fait chacune des méthodes de la classe str#
-# dans l'interpréteur de python  dir(str.find) #montre ce que fait la méthode find de la classe str# 
-
+# Dans l'interpréteur de python, (dir(str)) montre ce que fait chacune des méthodes de la classe str#
+# Dans l'interpréteur de python, dir(str.find) montre ce que fait la méthode find de la classe str# 
 
 # Pour chaque question ci-dessous, faites le code demandé. Laissez print(80*'_') déjà là afin de séparer les questions. 
 
@@ -77,9 +76,9 @@ else:
 #  variable avec un nombre aléatoire au début de cet exercice                                                       #
 print(f"Q6{80*'_'}")
 liste_500_1000 = []
-liste_500_1000.append(random.randint(500,1000))
-
-
+for i in range(10):
+    liste_500_1000.append(random.randint(500,1000))
+print(liste_500_1000)
 
 # Q7                                                                                                             #
 # Copiez votre code précédent et changez-le pour ne pas juste compter le nombre de chiffres entre 300 et 800 
