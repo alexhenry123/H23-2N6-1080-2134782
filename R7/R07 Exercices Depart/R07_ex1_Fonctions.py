@@ -36,7 +36,7 @@ cela_va()
 # 		 et qui va retourner le message "Je suis libre ce soir, et toi?"
 #        Appelez-la cela_va_bien
 def cela_va_bien(nom):
-    print(f"""Bonjour {nom}, 
+    print(f"""Bonjour {nom},
 Je suis libre ce soir, et toi?""")
 
 # Q4 B:   Appel de la fonction et capture de la réponse
