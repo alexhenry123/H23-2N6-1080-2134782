@@ -38,13 +38,13 @@ heure = ""
 nom = ""
 def invitation2(nom, lieu, jour, heure):
     print(f"""Bonjour {nom}, 
-Je veux t'inviter au {lieu}, {jour}, vers {heure}""")
+Je veux t'inviter {lieu}, {jour}, vers {heure}""")
 
 # Q2 B:  Appel de la fonction invitation2 pour inviter Sylvain et Nathalie au café étudiant, vendredi, vers 13h00
 invitation2("Sylvain", "café étudiant", "vendredi", "13:00")
 invitation2("Nathalie", "café étudiant", "vendredi", "13:00")
 
 # Q2 C:  Appel de la fonction invitation2 pour inviter Sylvain, Nathalie et Paul chez moi pour souper, samedi vers 17h00
-invitation2("Nathalie", "domicile, chez moi pour souper", "samedi", "17:00")
-invitation2("Sylvain", "domicile, chez moi pour souper", "samedi", "17:00")
-invitation2("Paul", "domicile, chez moi pour souper", "samedi", "17:00")
+invitation2("Nathalie", "à venir chez moi pour souper", "samedi", "17:00")
+invitation2("Sylvain", "à venir chez moi pour souper", "samedi", "17:00")
+invitation2("Paul", "à venir chez moi pour souper", "samedi", "17:00")
