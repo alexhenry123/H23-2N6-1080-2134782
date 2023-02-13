@@ -23,6 +23,11 @@
 #                                                     où X est le chiffre entré
 # Sinon, continuez à demander un nombre entre 400 et 800 en affichant le message suivant: 
 #                          "Vous avez entré X. On a besoin de 5 nombres entre 400 et 800. SVP recommencez." #
+nb_bonnes_réponses = 0
+while nb_bonnes_réponses < 5:
+    input("Entrez cinq chiffres entre 400 et 800 : ")
+    if input.__code__ >= 400 and input.__code__ <= 800:
+        nb_bonnes_réponses+=1
 
 
 

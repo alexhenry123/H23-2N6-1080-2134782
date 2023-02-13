@@ -70,16 +70,23 @@ else:
 #  Créez une deuxième liste de 5 chiffres entre 500 et 1000 cette fois-ci                                           #
 #  Ajoutez cette deuxième liste à votre première liste  (vérifiez quelle méthode des listes permet de faire cela)   #
 #  Faites le code pour imprimer le nombre de chiffres entre 300 et 800 dans votre nouvelle liste                    #
-#  Dans le terminal, si vous avez 6 chiffres entre 300  et 800 par exemple,                                         #
+#  Dans le terminal, si vous avez 6 chiffres entre 300 et 800 par exemple,                                         #
 #           la réponse serait: "Q6: Il y a dans la liste 6 chiffres entre 400 et 800"                               #
 #  Si vous êtes incertain sur la facon de crée un liste de nombre aléatoire, rappelez-vous, nous avons créé une     #
 #  variable avec un nombre aléatoire au début de cet exercice                                                       #
-print(f"Q6{80*'_'}")
+print(f"{80*'_'}")
+compteur = 0
 liste_500_1000 = []
 for i in range(10):
     liste_500_1000.append(random.randint(500,1000))
-print(liste_500_1000)
-
+nouvelle_liste = liste_chiffres.extend(liste_500_1000)
+for i in nouvelle_liste:
+    if i >= 300 and i <= 800:
+        compteur +=1
+if compteur == 0 or compteur == 1:
+    print(f"Q6 : Il y a {compteur} nombre entre 300 et 800 dans la liste.")
+else:
+    print(f"Q6 : Il y a {compteur} nombres entre 300 et 800 dans la liste.")
 # Q7                                                                                                             #
 # Copiez votre code précédent et changez-le pour ne pas juste compter le nombre de chiffres entre 300 et 800 
 # MAIS AUSSI, obtenir la moyenne de ces chiffres entre 300 et 800                                                #
@@ -90,5 +97,19 @@ print(liste_500_1000)
 #           la réponse serait: 
 #                    "Q7: Il y a dans la liste 6 chiffres entre 300 et 800, pour un total de 3600.
 #                         La moyenne de ces chiffres est de 300"                                                 # 
-print(f"Q7{80*'_'}")
-
+print(f"{80*'_'}")
+compteur = 0
+total = 0
+liste_500_1000 = []
+for i in range(10):
+    liste_500_1000.append(random.randint(500,1000))
+nouvelle_liste = liste_chiffres.extend(liste_500_1000)
+longueur_liste = len(nouvelle_liste)
+for i in nouvelle_liste:
+    if i >= 300 and i <= 800:
+        compteur +=1
+    total+=i
+if compteur == 0 or compteur == 1:
+    print(f"Q7 : Il y a {compteur} nombre entre 300 et 800 dans la liste et la moyenne est de {total / longueur_liste}.")
+else:
+    print(f"Q7 : Il y a {compteur} nombres entre 300 et 800 dans la liste et la moyenne est de {total / longueur_liste}.")
