@@ -21,14 +21,14 @@ print("Bonjour Thomas, \n Je veux t'inviter à venir chez moi demain vers 18h00.
 #        Cette fonction prendra une liste d'amis en paramètres                                      #
 liste_amis = ["Marc", "Pierre", "Lucie", "Achraf", "Claude", "Ilyan", "Maria", "Thomas"]
 def invitation(liste_amis):
-        print(f"""Bonjour {liste_amis}, 
+    for i in liste_amis:
+        print(f"""Bonjour {i}, 
 Je veux t'inviter à venir chez moi demain vers 18h00. Cela t'intéresse?""")
 
 # Q1 B:   Appel de la fonction avec la liste d'amis qu'on veut inviter. 
 #         Il faudra créer une liste qui comprendra les noms de nos amis, "Marc","Pierre", etc.
 #         Puis faites l'appel de la fonction en lui passant en paramètre votre liste d'amis
-for i in range(8):
-    invitation(liste_amis[i])
+invitation(liste_amis)
 
 # Q2 A:   Fonction pour inviter tout le monde, dans un lieu, un jour et une heure qui varient, sans duplication du code
 #         Appelez cette fonction invitation2
