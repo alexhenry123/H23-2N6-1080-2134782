@@ -9,13 +9,11 @@ print(80*'_')
 # C'est vraiment comme un dictionnaire dans la vraie vie
 # Les clés nous permettent de rechercher une valeur
 
-print(f"Q1{80*'_'}")
+print(f"{80*'_'}")
 # Q1:  on veut savoir la valeur du nom de l'étudiant en utilisant les f string
 #      Dans le terminal on aura: "Q1 Le nom de l'étudiant est : Pierre"  
-
-
-
-
+nom = etudiant["nom"]
+print(f"Le nom de l'étudiant est {nom}.")
 
 print(f"Q2{80*'_'}")
 # Q2: Ajoutez une nouvelle paire clé:valeur dans notre dictionnaire

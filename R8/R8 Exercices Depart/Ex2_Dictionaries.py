@@ -5,9 +5,8 @@ info_client = {"id":0,"prenom":"Hélène","nom":"Boucher","solde":831600}
 print(f"Q1{80*'_'}")
 # Q1: Affichez le prenom et le nom dans le terminal
 #     Résultat attendu dans le terminal : Q1: Bonjour Hélène Boucher ! 
-
-
-
+nom_complet = f'{info_client["prenom"]} {info_client["nom"]}'
+print(f"Bonjour {nom_complet} !")
 
 # Lorsque nous faisons une requête à un API, on sait qu'on obtient des données dans un format JSON
 # Supposons que vous avez obtenu de FakerAPI les données suivantes
