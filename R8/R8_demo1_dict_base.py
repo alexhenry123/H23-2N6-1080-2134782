@@ -30,25 +30,24 @@ print(f"L'élément équipe avec une valeur de {element_retire} a été retiré.
 # Dans ces exemples nous travaillons avec un dictionnaire que nous connaissons.
 # Si on travaille avec un dictionnaire qu'on a obtenu à partir d'une source externe...
 # il faut d'abord connaitre les clefs.
+
+
+# On peut aussi travailler avec chacune des paires clef:valeur une après l'autre.
 for clef, valeurs in employe.items():
     print(clef,valeurs)
 
-# On peut aussi travailler avec chacune des paires clef:valeur une après l'autre.
-
-
 # # Maintenant, on veut ajouter une liste des langagues de programmation connus par l'employe pour savoir quel cours il pourrait donner.
 competences = ["Python","C#","Pascal","Assembleur","Fortran","Magic the gathering"]
-
-
-
+employe["langage"] = competences
+print(employe)
 
 # # Si ensuite on veut extraire les langages pour une raison quelconque
 
 
 
-# # La clef "languages" du dictionnaire "employe" correspond réellement à une liste.
+# # La clef "langages" du dictionnaire "employe" correspond réellement à une liste.
 # # Toutes les méthodes et particuliarité des listes sont utilisables.
-# # Si on veut uniquement le premier language...
+# # Si on veut uniquement le premier langage...
 
 
 
@@ -71,10 +70,10 @@ liste_employés_2023 = [ {"prenom":"Bob","nom":"Uvoy","departement":"informatiqu
 
 
 
-# print("Bienvenu aux nouveaux employés de 2023 :")
+# print("Bienvenue aux nouveaux employés de 2023 :")
 # for personne in liste_employés_2023:
 #     print(f'\t{personne["prenom"]} {personne["nom"]}',end="")
 #     if personne == liste_employés_2023[-1]:
-#         print("  !")
+#         print(" !")
 #     else:
 #         print(",")
