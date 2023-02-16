@@ -15,16 +15,13 @@ print(f"{80*'_'}")
 nom = etudiant["nom"]
 print(f"Le nom de l'étudiant est {nom}.")
 
-print(f"Q2{80*'_'}")
+print(f"{80*'_'}")
 # Q2: Ajoutez une nouvelle paire clé:valeur dans notre dictionnaire
 #  Ajoutez le courriel comme clé et '2112344@cegepmontpetit.ca'
 #  Dans le terminal on veut avoir: Q2: Voici le courriel de l'étudiant qui a été ajouté: 2112344@cegepmontpetit.ca
-
-
-
-
-
-
+etudiant.update({"courriel": "2112344@cegepmontpetit.ca"})
+courriel = etudiant.get("courriel")
+print(f"Q2 : Voici le courriel de l'étudiant qui a été ajouté : {courriel}")
 
 print(f"Q3{80*'_'}")
 # Q3: donnez la nouvelle valeur '2000000@cegepmontpetit.ca'  au courriel de l'étudiant
