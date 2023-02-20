@@ -88,11 +88,10 @@ float(donnees_jsonprix)
 #  Q6)  Utilisez l'instruction << in >> pour vérifier si 3 fait partie des valeurs dans la liste categories du produit
 donnees_jsoncategories = donnees_jsondata["categories"]
 bool_categorie = False
-print(donnees_jsoncategories)
-# for categorie in donnees_jsoncategories:
-#     if donnees_jsoncategories[categorie] == 3:
-#         bool_categorie = True
-#         break
+for categorie in donnees_jsoncategories:
+    if categorie == 3:
+        bool_categorie = True
+        break
 
 
 #  Q7)  Imprimez le prix et si le produit est dans la catégorie 3 ou non
