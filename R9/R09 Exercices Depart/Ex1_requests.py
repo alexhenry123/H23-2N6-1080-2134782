@@ -19,6 +19,7 @@ BASE_URL = 'https://fakerapi.it/api/v1'
 # print(f"Q1: {json.dumps(res.json(),indent=4)}")
 
 
+
 # Q2) Pour travailler avec le résultat de la réponse, il faut le convertir en objet python.
 # L'objet de la classe <Respsonse> retourné par la requests.get() possède la méthode json() pour faire cela.
 # Transformer la réponse et imprimer le résultat.
@@ -26,6 +27,7 @@ BASE_URL = 'https://fakerapi.it/api/v1'
 # res = requests.get(f"{BASE_URL}/products?_quantity=1")
 # donnees_json = res.json()
 # print(f"Q2: {donnees_json}")
+
 
 
 # Q3) Le résultat obtenu à la question 2 n'est pas très clair.
@@ -37,6 +39,7 @@ BASE_URL = 'https://fakerapi.it/api/v1'
 # res = requests.get(f"{BASE_URL}/products?_quantity=1")
 # donnees_json = json.dumps(res.json(),indent=4)
 # print(f"Q3: {donnees_json}")
+
 
 
 #Si on regarde le résultat obtenue à la question 3, on peut voir la structure de la réponse obtenu.
@@ -71,15 +74,22 @@ BASE_URL = 'https://fakerapi.it/api/v1'
 # {'id': 1, 'name': 'Blanditiis aut in quia omnis.', 'net_price': 2.15, 'taxes': 22, 'price': '2.62', 'categories': [2, 3, 5]}
 
 res = requests.get(f'{BASE_URL}/products')
-donnees_jsondata = res.json()["data"][0]
-print(json.dumps(donnees_jsondata,indent=4))
+# donnees_jsondata = res.json()["data"][0]
+# print(json.dumps(donnees_jsondata,indent=4))
+
+
 
 #  Q5) Obtenez le prix et changez-le en un float
-
+donnees_jsonprix = res.json()["price"][0]
+donnees_jsonprix = float
+print(donnees_jsonprix)
 
 #  Q6)  Utilisez l'instruction << in >> pour vérifier si 3 fait partie des valeurs dans la liste categories du produit
-
+liste_categorie = res.json()["categories"][0]
+bool_categorie = False
+if 3 in liste_categorie:
+    bool_categorie = True
 
 #  Q7)  Imprimez le prix et si le produit est dans la catégorie 3 ou non
 #       Quelque chose comme: "Le produit a le prix de 3945.01 et on peut savoir s'il est dans la catégorie 3: False"
-
+print(f"Le produit a le prix de {donnees_jsonprix} et on peut savoir s'il est dans la catégorie 3: {bool_categorie}")
