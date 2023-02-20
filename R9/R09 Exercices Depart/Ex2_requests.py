@@ -1,4 +1,4 @@
-# comment intaller un module qu'on n'a pas déjà installé dans python
+# Comment installer un module qu'on n'a pas déjà installé dans python
 # https://www.freecodecamp.org/news/how-to-interact-with-web-services-using-python/
 # Dans le terminal              pip install requests
 
@@ -11,20 +11,17 @@ BASE_URL = 'https://fakerapi.it/api/v1'
 
 #  Le but est d'obtenir le 'price' moyen des produits de moins de 100000 qui sont dans la catégorie 3.
 
-
 ### - Q1) Faites une demande de 25 produits 
 res = requests.get(f'{BASE_URL}products?limit=25')
 print(res)
-
-
  
-##  Q2) Utilisez json.dumps() et sont paramètre indent pour imprimer 
-# la réponse de facon lisible pour l'humain.
+
+##  Q2) Utilisez json.dumps() et son paramètre indent pour imprimer 
+# la réponse de façon lisible pour l'humain.
+donnees_json = json.dumps(res.json(),indent=4)
 
 
-
-
-# Q3)  Obtenez la liste des produits à partir de la clé 'data' du dictionnaire obtenu en Q3
+# Q3)  Obtenez la liste des produits à partir de la clé 'data' du dictionnaire obtenue en Q3
 
 
 
