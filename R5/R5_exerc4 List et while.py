@@ -28,8 +28,6 @@ while nb_bonnes_réponses < 5:
     input("Entrez cinq chiffres entre 400 et 800 : ")
     if input() >= '400' and input() <= '800':
         nb_bonnes_réponses+=1
-        continue
-
 
 # Q2  Devinez la couleur qu'on veut:
 #     Pour faire simple, nous dirons que la couleur désirée ici est 'Jaune'

@@ -38,3 +38,11 @@ nb_soldes = len(donnees_json)
 for client in donnees_json:
     total += client["solde"]
 print(f"Q3: Le solde moyen de mes clients est : {total / nb_soldes}")
+
+#Test
+nombre = "patate"
+
+
+pass
+
+
