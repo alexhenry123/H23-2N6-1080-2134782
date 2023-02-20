@@ -24,9 +24,9 @@ BASE_URL = 'https://fakestoreapi.com'
 
 # faire une demande de 3 produits (GET/products?limit=3)
 
-# res = requests.get(f'{BASE_URL}/products?limit=3')
-# donnees_req = res.json()
-# print(json.dumps(donnees_req[0],indent=4))
+res = requests.get(f'{BASE_URL}/products?limit=3')
+donnees_req = res.json()
+print(json.dumps(donnees_req[0],indent=4))
 
 
 
@@ -37,40 +37,38 @@ BASE_URL = 'https://fakestoreapi.com'
 # faire une demande pour le produit dont l'id est 18 (GET/products?18)
 
 
-# res = requests.get(f'{BASE_URL}/products/18')
-# donnees_req = res.json()
-# print(json.dumps(donnees_req,indent=4))
+res = requests.get(f'{BASE_URL}/products/18')
+donnees_req = res.json()
+print(json.dumps(donnees_req,indent=4))
 
 ######################################################################
 # Une fois la réponse obtenue, on peut convertir la réponse en objet python et les utilisés
 # si on veut trier les produits selon leurs catégories
 
 
-# res = requests.get(f'{BASE_URL}/products/18')
-# donnees_req = res.json()
+res = requests.get(f'{BASE_URL}/products/18')
+donnees_req = res.json()
 
-# for produit in donnees_req:
-#     print(produit["price"])
+for produit in donnees_req:
+    print(produit["price"])
 
-# ls_aubaine = []
-# for produit in donnees_req:
-#     if produit["price"] <= 20:
-#         ls_aubaine.append(produit["id"])
-# print(ls_aubaine)
+ls_aubaine = []
+for produit in donnees_req:
+    if produit["price"] <= 20:
+        ls_aubaine.append(produit["id"])
+print(ls_aubaine)
 
 ######################################################################
-# Ou bien si on veut extraire les noms des tous les clients et les mettres dans une liste.
+# Ou bien si on veut extraire les noms de tous les clients et les mettre dans une liste.
 
 
 res = requests.get(f'{BASE_URL}/users/1')
-# print(json.dumps(res.json(),indent=4))
-
-# donnees_json = res.json()
-# ls_aubaine = []
-# for users in donnees_json:
-#     if users["price"] <= 20:
-#         ls_aubaine.append(users["id"])
-# print(ls_aubaine)
+donnees_json = res.json()
+ls_aubaine = []
+for users in donnees_json:
+    if users["price"] <= 20:
+        ls_aubaine.append(users["id"])
+print(ls_aubaine)
 
 
 
@@ -106,7 +104,6 @@ BASE_URL = "https://fakerapi.it/api/v1/"
 # Avec cette API, les résultats sont aléatoires par défaut.
 # Allons chercher les mêmes trois livres de facon reproduisable
 
-res = requests.get(f'{BASE_URL}addresses?_quantity=2&_seed=1')
-donnees_req = res.json()["data"]
-print(json.dumps(res.json(),indent=4))
-
+# res = requests.get(f'{BASE_URL}addresses?_quantity=2&_seed=1')
+# donnees_req = res.json()["data"]
+# print(json.dumps(res.json(),indent=4))

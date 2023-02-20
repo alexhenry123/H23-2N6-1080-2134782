@@ -14,7 +14,7 @@ BASE_URL = 'https://fakerapi.it/api/v1'
 
 ### - Q1) Faites une demande de 25 produits 
 res = requests.get(f'{BASE_URL}products?limit=25')
-print(res.ok)
+print(res)
 
 
  

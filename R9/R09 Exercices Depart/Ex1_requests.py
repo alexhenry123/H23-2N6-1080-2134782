@@ -14,25 +14,29 @@ BASE_URL = 'https://fakerapi.it/api/v1'
 # l'API nous offre /products?_quantity=X
 
 # Q1) faire une demande de 1 produit1 (GET/products?_quantity=1) et conservez le résultat dans une variable
-res = requests.get(f"https://fakerapi.it/api/v1/products?_quantity=1")
 
-print(json.dumps(res.json(),indent=4))
+# res = requests.get(f"{BASE_URL}/products?_quantity=1")
+# print(f"Q1: {json.dumps(res.json(),indent=4)}")
 
-# Q2) Pour travailler avec le résultat de la réponse, il faut le converire en objets pythons.
+
+# Q2) Pour travailler avec le résultat de la réponse, il faut le convertir en objet python.
 # L'objet de la classe <Respsonse> retourné par la requests.get() possède la méthode json() pour faire cela.
-# Transformé la réponse et imprimer le résultat.
+# Transformer la réponse et imprimer le résultat.
+
+# res = requests.get(f"{BASE_URL}/products?_quantity=1")
+# donnees_json = res.json()
+# print(f"Q2: {donnees_json}")
 
 
+# Q3) Le résultat obtenu à la question 2 n'est pas très clair.
+# La fonction json.dumps() prend un objet python en paramètre et retourne une chaîne de caractères.
+# Cette fonction peut aussi prendre une valeur pour l'argument "indent" qui sert à spécifier le niveau
+# d'indentation de la chaîne de caractères. Avec le paramètre indent, le string devient lisible pour l'être humain.
+# Utilisez json.dumps() pour imprimer la réponse sous un format lisible par l'humain.
 
-
-
-# Q3) Le résultat obtenu a la question 2 n'est pas très clair.
-# La fonction json.dumps() prend un objet python en paramètre et retourne une chaine de caractères.
-# Cette fonction peut aussi prendre unr valeur pour l'argument "indent" qui sert a spécifier le niveau
-# d'indentation de la chaine de caractères. Avec le paramètre indent, le string devient lisible pour l'être humain.
-# Utilisé json.dumps() pour imprimer la réponse sous un format lisible par l'humain.
-
-
+# res = requests.get(f"{BASE_URL}/products?_quantity=1")
+# donnees_json = json.dumps(res.json(),indent=4)
+# print(f"Q3: {donnees_json}")
 
 
 #Si on regarde le résultat obtenue à la question 3, on peut voir la structure de la réponse obtenu.
@@ -60,18 +64,17 @@ print(json.dumps(res.json(),indent=4))
 }
 # On peut constater que l'objet obtenu par la fonction .json() est dans ce cas un dictionnaire.
 # Ce dictionnaire contient seulement 4 paires clefs ; "status","code","total", et "data"
-# Ces la clef "data" qui contient la liste des produits en réponse à notre requête.
-
+# C'est la clef "data" qui contient la liste des produits en réponse à notre requête.
 
 # Q4)  Obtenez le premier élément du dictionnaire avec la clé 'data' dans une variable et imprimez-le
-
-
 #  Donc on obtient quelque chose comme
 # {'id': 1, 'name': 'Blanditiis aut in quia omnis.', 'net_price': 2.15, 'taxes': 22, 'price': '2.62', 'categories': [2, 3, 5]}
 
+res = requests.get(f'{BASE_URL}/products')
+donnees_jsondata = res.json()["data"][0]
+print(json.dumps(donnees_jsondata,indent=4))
 
-
-#  Q5) Obtenez le prix et changez le en un float
+#  Q5) Obtenez le prix et changez-le en un float
 
 
 #  Q6)  Utilisez l'instruction << in >> pour vérifier si 3 fait partie des valeurs dans la liste categories du produit
