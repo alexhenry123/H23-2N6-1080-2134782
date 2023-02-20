@@ -15,8 +15,8 @@ BASE_URL = 'https://fakerapi.it/api/v1'
 
 # Q1) faire une demande de 1 produit1 (GET/products?_quantity=1) et conservez le résultat dans une variable
 
-# res = requests.get(f"{BASE_URL}/products?_quantity=1")
-# print(f"Q1: {json.dumps(res.json(),indent=4)}")
+res = requests.get(f"{BASE_URL}/products?_quantity=1")
+print(f"Q1: {json.dumps(res.json(),indent=4)}")
 
 
 
@@ -74,22 +74,27 @@ BASE_URL = 'https://fakerapi.it/api/v1'
 # {'id': 1, 'name': 'Blanditiis aut in quia omnis.', 'net_price': 2.15, 'taxes': 22, 'price': '2.62', 'categories': [2, 3, 5]}
 
 res = requests.get(f'{BASE_URL}/products')
-# donnees_jsondata = res.json()["data"][0]
-# print(json.dumps(donnees_jsondata,indent=4))
+donnees_jsondata = res.json()["data"][0]
+print(json.dumps(donnees_jsondata,indent=4))
 
 
 
 #  Q5) Obtenez le prix et changez-le en un float
-donnees_jsonprix = res.json()["price"][0]
-donnees_jsonprix = float
-print(donnees_jsonprix)
+donnees_jsonprix = donnees_jsondata["price"]
+float(donnees_jsonprix)
+
+
 
 #  Q6)  Utilisez l'instruction << in >> pour vérifier si 3 fait partie des valeurs dans la liste categories du produit
-liste_categorie = res.json()["categories"][0]
+donnees_jsoncategories = donnees_jsondata["categories"]
 bool_categorie = False
-if 3 in liste_categorie:
-    bool_categorie = True
+print(donnees_jsoncategories)
+# for categorie in donnees_jsoncategories:
+#     if donnees_jsoncategories[categorie] == 3:
+#         bool_categorie = True
+#         break
+
 
 #  Q7)  Imprimez le prix et si le produit est dans la catégorie 3 ou non
 #       Quelque chose comme: "Le produit a le prix de 3945.01 et on peut savoir s'il est dans la catégorie 3: False"
-print(f"Le produit a le prix de {donnees_jsonprix} et on peut savoir s'il est dans la catégorie 3: {bool_categorie}")
+print(f"Le produit a le prix de {donnees_jsonprix} et on peut savoir s'il est dans la catégorie 3 : {bool_categorie}")
