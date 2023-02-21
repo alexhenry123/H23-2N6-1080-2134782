@@ -17,12 +17,12 @@ print(f"Q1{80*'_'}")
 #     print("ERREUR - âge non-valide")
 
 #Façon #2 pour int (plante toujours lorsque la valeur d'entrée du input est un string)
-#
-# age = input("Entrez votre âge : ")
-# if age == str.isalpha:
-#     print("ERREUR - âge non-valide")
-# else:
-#     print(util_r5.annee_de_naissance(int(age)))
+
+age = input("Entrez votre âge : ")
+if age == str.isalpha:
+    print("ERREUR - âge non-valide")
+else:
+    print(util_r5.annee_de_naissance(int(age)))
 
 
 # # Q2 Des variables sont générées par une fonction dans un module utilitaire.
