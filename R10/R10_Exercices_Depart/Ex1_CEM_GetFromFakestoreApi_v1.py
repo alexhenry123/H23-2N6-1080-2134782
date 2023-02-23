@@ -20,8 +20,7 @@ base_url="https://fakestoreapi.com"
 #          faites un message comme quoi il faut entrer un nombre entre 1 et 10
 #   La fonction doit retourner le nombre de carts demandés, si le nombre est entre 1 et 10
 
-
-#Requête de fakestoreapi
+#Requête json des carts
 res = requests.get(f'{base_url}/carts')
 donnees_json = json.dumps(res.json(),indent=4)
 compteur = 0
@@ -34,11 +33,11 @@ nb_de_carts = compteur
 def request_carts(nb_de_carts):
     
     #S'il n'y a pas de paramètre entré
-    if nb_de_carts is None:        
+    if nb_de_carts is None:
         print("Veuillez entrer un paramètre, soit le nombre de carts")
-                
+        
     #Si le paramètre n'est pas entre 1 et 10
-    if nb_de_carts <= 0 and nb_de_carts >= 11:
+    if nb_de_carts <= 0 or nb_de_carts >= 11:
         print(f"Votre nombre entré, soit {nb_de_carts}, ne correspond pas. Veuillez entrer un nombre entre 1 et 10 pour le nombre de carts")
         
     #(Valide) Si le paramètre donné est un entier entre 1 et 10
@@ -46,9 +45,9 @@ def request_carts(nb_de_carts):
         print(f"Voici le nombre de carts demandés : {nb_de_carts}")
         
     #Dans les autres cas
-    else:
-        print(f"Veuillez entrer un nombre entier entre 1 et 10")
-        
+    # else:
+    #     print(f"Veuillez entrer un nombre entier entre 1 et 10")
+
 request_carts(nb_de_carts)
 
 # Q2 Écrivez une fonction appelée request_products qui aura 1 paramètre
