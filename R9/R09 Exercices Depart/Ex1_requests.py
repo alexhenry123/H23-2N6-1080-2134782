@@ -13,7 +13,7 @@ BASE_URL = 'https://fakerapi.it/api/v1'
 # pour avoir seulement X produits
 # l'API nous offre /products?_quantity=X
 
-# Q1) faire une demande de 1 produit1 (GET/products?_quantity=1) et conservez le résultat dans une variable
+# Q1) Faire une demande de 1 produit (GET/products?_quantity=1) et conserver le résultat dans une variable
 res = requests.get(f"{BASE_URL}/products?_quantity=1")
 print(f"Q1: {json.dumps(res.json(),indent=4)}")
 

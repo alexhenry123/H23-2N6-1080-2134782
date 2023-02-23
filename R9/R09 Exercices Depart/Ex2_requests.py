@@ -8,7 +8,6 @@ import json
 
 BASE_URL = 'https://fakerapi.it/api/v1'
 
-
 #  Le but est d'obtenir le 'price' moyen des produits de moins de 100000 qui sont dans la catégorie 3.
 
 ### - Q1) Faites une demande de 25 produits 
@@ -36,14 +35,13 @@ donnees_jsondata = res.json()["data"]
 #      Après la boucle calculez la moyenne
 #      Finalement imprimez le résultat, qui pourrait ressembler à ceci: 
 #            "Parmi les 25 produits que j'ai obtenus, il y a 6 produits dans la catégorie 3 et leur prix moyen est de 12 328,94$"
+#
 total_des_prix = 0
 nombre_de_produits = 0
-prix_produit = 0
 for produits in donnees_jsondata:
-    produits["price"] = prix_produit
-    float(prix_produit)
+    prix_produit = float(produits["price"])
     if produits["categories"] == 3 and prix_produit < 100000:
         total_des_prix += produits["categories"]
         nombre_de_produits+=1
 moyenne = total_des_prix / nombre_de_produits
-print(f"Q4: Parmi les {nombre_de_produits} produits que j'ai obtenus, il y a 6 produits dans la catégorie 3 et leur prix moyen est de {moyenne}")
+print(f"Q4: Parmi les 25 produits que j'ai obtenus, il y a {nombre_de_produits} produits dans la catégorie 3 et leur prix moyen est de {moyenne}")
