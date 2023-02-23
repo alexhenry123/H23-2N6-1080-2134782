@@ -23,18 +23,20 @@ base_url="https://fakestoreapi.com"
 #Requête json des carts
 res = requests.get(f'{base_url}/carts')
 donnees_json = json.dumps(res.json(),indent=4)
-compteur = 0
-for carts in donnees_json:
-    if carts == "id":
+for carts in res:
+    compteur = 0
+    if carts == '"id"':
         compteur+=1
-nb_de_carts = compteur
+nb_de_carts_json = compteur
+
+#print(donnees_json)
 
 #Création de la méthode
-def request_carts(nb_de_carts):
+def request_carts(nb_de_carts=None):
     
     #S'il n'y a pas de paramètre entré
     if nb_de_carts is None:
-        print("Veuillez entrer un paramètre, soit le nombre de carts")
+        return print("Veuillez entrer un paramètre, soit le nombre de carts")
         
     #Si le paramètre n'est pas entre 1 et 10
     if nb_de_carts <= 0 or nb_de_carts >= 11:
@@ -45,10 +47,11 @@ def request_carts(nb_de_carts):
         print(f"Voici le nombre de carts demandés : {nb_de_carts}")
         
     #Dans les autres cas
-    # else:
-    #     print(f"Veuillez entrer un nombre entier entre 1 et 10")
+    else:
+        print(f"Veuillez entrer un nombre entier entre 1 et 10")
 
-request_carts(nb_de_carts)
+request_carts(nb_de_carts_json)
+
 
 # Q2 Écrivez une fonction appelée request_products qui aura 1 paramètre
 #   soit le nombre de produits que vous voulez aller chercher
@@ -60,10 +63,9 @@ request_carts(nb_de_carts)
 
 #   La fonction doit retourner le nombre de produits demandés, si le nombre est entre 1 et 10
 
-
-
-
-
+#Requête des "products" json
+def request_products():
+    pass
 
 
 
