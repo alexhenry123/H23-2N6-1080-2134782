@@ -19,8 +19,15 @@ base_url="https://fakestoreapi.com"
 #          faites un message comme quoi il faut entrer un nombre entre 1 et 10
 
 #   La fonction doit retourner le nombre de carts demandés, si le nombre est entre 1 et 10
-
-
+def request_carts(nb_de_carts=None):
+    if nb_de_carts is None:        
+        print("Veuillez entrer un paramètre, soit le nombre de carts")
+    elif nb_de_carts < 0 and nb_de_carts > 10:
+        print(f"Votre nombre entré, soit {nb_de_carts}, ne correspond pas. Veuillez entrer un nombre entre 1 et 10 pour le nombre de carts")
+    elif nb_de_carts > 0 and nb_de_carts <= 10:
+        
+    
+request_carts()
 
 
 
