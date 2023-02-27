@@ -9,7 +9,10 @@ os.chdir(os.path.dirname(__file__)) # Cette ligne fait que l'exécution du scrip
 # Vous devez aller chercher les informations à l'aide du module requests.
 url = "https://fakestoreapi.com/"
 
-
+# import echantillon_data
+# ls_client = echantillon_data.liste_clients_s2
+# for client in ls_client:
+#     print(client["nom"])
 
 
 

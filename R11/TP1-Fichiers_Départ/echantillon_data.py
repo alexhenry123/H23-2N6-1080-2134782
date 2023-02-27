@@ -3,7 +3,7 @@
 #       liste_clients_s1
 #   et  liste_clients_s2
 
-# Pour les utilisés, importez ce script comme module dans votre script.
+# Pour les utiliser, importez ce script comme module dans votre script.
 # puis accèdez à la variable avec :  echantillon_data.liste_clients_s1
 #                                ou  echantillon_data.liste_clients_s2
 

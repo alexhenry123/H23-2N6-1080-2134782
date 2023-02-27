@@ -17,14 +17,24 @@ os.chdir(os.path.dirname(__file__)) # Cette ligne fait que l'exécution du scrip
 #Avec dictionnaire
 with open('data_ventes.csv', 'r', encoding='utf-8') as csv_file:
     csv_reader = csv.reader(csv_file)
-    #next(csv_reader)
-    liste_client = {"ID client",
-                "Nom client",
-                "Prenom client",
-                "Commande client"}
+    next(csv_reader)
     for line in csv_reader:
-        liste_client.update(line)
-    print(liste_client)
+        id = line[0]
+        nom = line [1]
+        prenom = line[2]
+    liste_client = {
+        "ID client":id,
+        "Nom client":nom,
+        "Prenom client":prenom}
+print(liste_client)
+
+
+    # for line in csv_reader:
+    #     liste_client.update(line)
+    # #Imprimer les valeurs du dictionnaire
+    # for key,value in liste_client.items():
+    #     print(key,value)
+
 
 
 #Avec liste vide
