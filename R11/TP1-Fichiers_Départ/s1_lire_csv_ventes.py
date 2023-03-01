@@ -14,30 +14,21 @@ os.chdir(os.path.dirname(__file__)) # Cette ligne fait que l'exécution du scrip
 # Le but ultime de ce script est d'arriver à une liste, contenant pour chaque client
 
 
-#Avec dictionnaire et liste
+#Avec dictionnaire et liste vide
 ls_client = []
 with open('data_ventes.csv', 'r', encoding='utf-8') as csv_file:
     csv_reader = csv.reader(csv_file)
+    #Sauter les lignes
     for i in range(5):
         next(csv_reader)
-    #Sauter les lignes
     for line in csv_reader:
         ls_client += line
-        for i in range(1,21):
-            pass
-print(ls_client)
-
-# dict_client = {
-#         "ID client":id,
-#         "Nom client":nom,
-#         "Prenom client":prenom}
-#print(dict_client)
-
-#Avec liste vide
-# ls_client2 = []
-# with open('data_ventes.csv', 'r', encoding='utf-8') as csv_file:
-#     csv_reader = csv.reader(csv_file)
-#     next(csv_reader)
-#     for line in csv_reader:
-#         ls_client2 += line
-    #print(liste_client)
+        id_client, nom, prenom = ls_client[0:3]
+        for id in range(1,21):
+            id_produit = ls_client[3:len(line)]
+dict_client = {
+        "ID client":id_client,
+        "Nom client":nom,
+        "Prenom client":prenom,
+        "ID produit": id_produit}
+print(dict_client)
