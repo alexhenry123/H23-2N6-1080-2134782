@@ -17,12 +17,14 @@ with open('data_ventes.csv', 'r', encoding='utf-8') as csv_file:
     for i in range(5):
         next(csv_reader)
     for line in csv_reader:
+        index_produit = 0
         id_client, nom, prenom = line[0:3]
         for id in range(1,21):
-            id_produit = line[3:len(line)]
+            id_quantité = line[3:len(line)]
+        index_produit+=1
         dict_client = {
         "ID client":id_client,
         "Nom client":nom,
-        "Prenom client":prenom,
-        "ID produit":id_produit}
+        "Prénom client":prenom,
+        "Commande":[{"ID produit":index_produit},{"Quantité":id_quantité}]}
 print(dict_client)
