@@ -16,8 +16,14 @@ import requests as rq
 ls_client_s1 = echantillon_data.liste_clients_s1
 ls_client_s2 = echantillon_data.liste_clients_s2
 
+ls_s1 = s1_lire_csv_ventes
 res = rq.get(f"{url}/products")
 data = json.loads(res.text)
-print(f"{data}")
+print(s1_lire_csv_ventes.dict_client.items())
 
-#dict_s2 = {"Prix":data["price"],"Catégorie":data["category"]}
+
+
+
+print(f"{ls_s1}")
+
+#dict_produits = {"Prix":data["price"],"Catégorie":data["category"]}
