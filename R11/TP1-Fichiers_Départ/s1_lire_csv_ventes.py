@@ -23,12 +23,12 @@ with open('data_ventes.csv', 'r', encoding='utf-8') as csv_file:
         for id in range(1,21):
             id_quantité = line[3:len(line)]
             index_produit+=1
-            ls_commandes = {"ID produit":index_produit,"Quantité":id_quantité[index_produit-1]}
+            dict_commandes = {"ID produit":index_produit,"Quantité":id_quantité[index_produit-1]}
         dict_client = {
             "ID client":id_client,
             "Nom client":nom,
-            "Prénom client":prenom}
-            #"Commande client":[{"ID produit":index_produit,"Quantité":id_quantité[index_produit-1]}]}
-        dict_client.update(ls_commandes)
+            "Prénom client":prenom,
+            "Commande":dict_commandes}
+        #dict_client.update(dict_commandes)
         ls_clients += dict_client.items()
 print(ls_clients)
