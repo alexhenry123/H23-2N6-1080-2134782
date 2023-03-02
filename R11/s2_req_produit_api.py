@@ -10,12 +10,14 @@ os.chdir(os.path.dirname(__file__)) # Cette ligne fait que l'exécution du scrip
 url = "https://fakestoreapi.com"
 
 import echantillon_data
-#import s1_lire_csv_ventes
+import s1_lire_csv_ventes
 import json
 import requests as rq
 ls_client_s1 = echantillon_data.liste_clients_s1
 ls_client_s2 = echantillon_data.liste_clients_s2
 
 res = rq.get(f"{url}/products")
-data = res.json()
-print(data)
+data = json.loads(res.text)
+print(f"{data}")
+
+#dict_s2 = {"Prix":data["price"],"Catégorie":data["category"]}
