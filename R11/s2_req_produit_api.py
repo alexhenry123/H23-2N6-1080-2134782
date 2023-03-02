@@ -7,15 +7,15 @@ os.chdir(os.path.dirname(__file__)) # Cette ligne fait que l'exécution du scrip
 
 # Les informations sur les produits proviennent du site du magasin.
 # Vous devez aller chercher les informations à l'aide du module requests.
-url = "https://fakestoreapi.com/"
+url = "https://fakestoreapi.com"
 
 import echantillon_data
-import s1_lire_csv_ventes
+#import s1_lire_csv_ventes
 import json
 import requests as rq
 ls_client_s1 = echantillon_data.liste_clients_s1
 ls_client_s2 = echantillon_data.liste_clients_s2
 
 res = rq.get(f"{url}/products")
-donnees_json = json.dumps(res.json(),indent=4)
-print(donnees_json)
+data = res.json()
+print(data)
