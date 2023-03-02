@@ -12,6 +12,7 @@ os.chdir(os.path.dirname(__file__)) # Cette ligne fait que l'exécution du scrip
 # Il en est ainsi pour chacun des 20 produits disponibles.
 
 # Le but ultime de ce script est d'arriver à une liste, contenant pour chaque client
+ls_clients = []
 with open('data_ventes.csv', 'r', encoding='utf-8') as csv_file:
     csv_reader = csv.reader(csv_file)
     for i in range(5):
@@ -21,10 +22,13 @@ with open('data_ventes.csv', 'r', encoding='utf-8') as csv_file:
         id_client, nom, prenom = line[0:3]
         for id in range(1,21):
             id_quantité = line[3:len(line)]
-        index_produit+=1
+            index_produit+=1
+            ls_commandes = {"ID produit":index_produit,"Quantité":id_quantité[index_produit-1]}
         dict_client = {
-        "ID client":id_client,
-        "Nom client":nom,
-        "Prénom client":prenom,
-        "Commande":[{"ID produit":index_produit},{"Quantité":id_quantité}]}
-print(dict_client)
+            "ID client":id_client,
+            "Nom client":nom,
+            "Prénom client":prenom}
+            #"Commande client":[{"ID produit":index_produit,"Quantité":id_quantité[index_produit-1]}]}
+        dict_client.update(ls_commandes)
+        ls_clients += dict_client.items()
+print(ls_clients)
