@@ -26,7 +26,7 @@ with open('data_ventes.csv', 'r', encoding='utf-8') as csv_file:
             ls_commandes = [position,line[id]]
             #id_quantité += ls_commandes
             position += 1
-        dict_client = {
+            dict_client = {
             "ID client": id_client,
             "Nom client": nom,
             "Prénom client": prenom,
