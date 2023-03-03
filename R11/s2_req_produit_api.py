@@ -1,4 +1,5 @@
 import os
+import csv
 os.chdir(os.path.dirname(__file__)) # Cette ligne fait que l'exécution du script aura toujours lieu dans le répertoire où il se trouve.
 
 # Maintenant que nous avons un script capable de lire et décoder le fichier csv.
@@ -18,19 +19,15 @@ ls_client_s2 = echantillon_data.liste_clients_s2
 ls_s1 = s1_lire_csv_ventes
 
 res = rq.get(f"{url}/products")
-data = json.loads(res.text)
 donnees_json = res.json()
-#json_lisible = json.dumps(res.json(),indent=4)
 
 index = 0
-ls_commandes = []
 for commandes in donnees_json:
-    for commandes in donnees_json:
+    for i in range(len(donnees_json)):
         prix = donnees_json[index]["price"]
-        catégorie = donnees_json[index]["category"]
-    ls_commandes += prix, catégorie
+        categorie = donnees_json[index]["category"]
+        dict_ajout = [{"Prix":prix,"Catégorie":categorie}]
     index+=1
-dict_produits = {"Prix":ls_commandes,"Catégorie":ls_commandes}
+print(dict_ajout)
 
-print(f"{dict_produits}")
 
