@@ -33,3 +33,12 @@ with open('data_ventes.csv', 'r', encoding='utf-8') as csv_file:
             "Commande":{"ID produit": ls_commandes[0],"Quantité": ls_commandes[1]}}
         ls_clients += dict_client.items()
 print(ls_clients)
+
+
+
+
+
+
+
+
+
