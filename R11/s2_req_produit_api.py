@@ -15,15 +15,22 @@ import json
 import requests as rq
 ls_client_s1 = echantillon_data.liste_clients_s1
 ls_client_s2 = echantillon_data.liste_clients_s2
-
 ls_s1 = s1_lire_csv_ventes
+
 res = rq.get(f"{url}/products")
 data = json.loads(res.text)
-print(s1_lire_csv_ventes.dict_client.items())
+donnees_json = res.json()
+#json_lisible = json.dumps(res.json(),indent=4)
 
+index = 0
+ls_commandes = []
+for commandes in donnees_json:
+    for commandes in donnees_json:
+        prix = donnees_json[index]["price"]
+        catégorie = donnees_json[index]["category"]
+    ls_commandes += prix, catégorie
+    index+=1
+dict_produits = {"Prix":ls_commandes,"Catégorie":ls_commandes}
 
+print(f"{dict_produits}")
 
-
-print(f"{ls_s1}")
-
-#dict_produits = {"Prix":data["price"],"Catégorie":data["category"]}
