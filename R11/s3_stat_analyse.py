@@ -31,26 +31,24 @@ plus_petit_prix = 0
 
 #Nombre d'articles vendus
 for articles in ls_client_s2:
-    if articles == "id":
         total_articles_vendus+=1
 
 #Montant total des ventes
-for prix in dict_client_s2.values:
-    if prix == dict_client_s2["Prix"]:
-        montant_total_ventes += dict_client_s2["Prix"]
+for prix in dict_client_s2:
+    montant_total_ventes += dict_client_s2["Prix"]
 
 #Prix moyen des commandes
 prix_moyen_ventes = montant_total_ventes / total_articles_vendus
 
 #Commande la plus dispendieuse
 for prix in dict_client_s2:
-    if prix > prix + 1:
-        plus_grand_prix += prix
+    if dict_client_s2["Prix"] > dict_client_s2["Prix"] + 1:
+        plus_grand_prix += dict_client_s2["Prix"]
 
 #Commande la moins dispendieuse
 for prix in dict_client_s2:
-    if prix < prix + 1:
-        plus_petit_prix += prix
+    if dict_client_s2["Prix"] < dict_client_s2["Prix"] + 1:
+        plus_grand_prix += dict_client_s2["Prix"]
 
 #Écriture du contenu du fichier texte
 fichier_texte = f"""Parmi les données recueillies, nous avons :
@@ -61,6 +59,6 @@ L'article le plus dispendieux : {plus_grand_prix}
 Ainsi que l'article le moins dispendieux : {plus_petit_prix}."""
 
 #Création du fichier texte
-with open('s3_fichier_texte.csv', 'w', newline="") as texte_csv:
+with open('2023_T1_analyse.txt', 'w') as texte_csv:
     writer = csv.writer(texte_csv)
-    writer.writerows(fichier_texte)
+    writer.writerow(fichier_texte)

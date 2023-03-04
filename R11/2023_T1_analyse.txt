@@ -1,0 +1,6 @@
+P,a,r,m,i, ,l,e,s, ,d,o,n,n,é,e,s, ,r,e,c,u,e,i,l,l,i,e,s,",", ,n,o,u,s, ,a,v,o,n,s, ,:,"
+",L,e, ,m,o,n,t,a,n,t, ,t,o,t,a,l, ,d,e,s, ,v,e,n,t,e,s, ,:, ,7,7,.,9,4,",","
+",L,e, ,n,o,m,b,r,e, ,t,o,t,a,l, ,d,',a,r,t,i,c,l,e,s, ,v,e,n,d,u,s, ,:, ,1,2,1,",","
+",L,e, ,p,r,i,x, ,m,o,y,e,n, ,d,e,s, ,v,e,n,t,e,s, ,:, ,0,.,6,4,4,1,3,2,2,3,1,4,0,4,9,5,8,7,",","
+",L,',a,r,t,i,c,l,e, ,l,e, ,p,l,u,s, ,d,i,s,p,e,n,d,i,e,u,x, ,:, ,7,7,.,9,4, ,"
+",A,i,n,s,i, ,q,u,e, ,l,',a,r,t,i,c,l,e, ,l,e, ,m,o,i,n,s, ,d,i,s,p,e,n,d,i,e,u,x, ,:, ,0,.
