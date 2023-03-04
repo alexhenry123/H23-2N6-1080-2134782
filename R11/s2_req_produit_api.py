@@ -14,6 +14,7 @@ import s1_lire_csv_ventes
 import json
 import requests as rq
 ls_client = s1_lire_csv_ventes.ls_clients
+dict_clients = s1_lire_csv_ventes.dict_client
 
 res = rq.get(f"{url}/products")
 donnees_json = res.json()
@@ -23,6 +24,7 @@ for i in range(len(donnees_json)):
     prix = donnees_json[i]["price"]
     categorie = donnees_json[i]["category"]
     dict_prixcategorie = {"Prix":prix,"Catégorie":categorie}
+    dict_prixcategorie.update(dict_clients)
     ls_commandes += dict_prixcategorie.items()
 ls_client.append(ls_commandes)
-print(ls_client)
+#print(ls_client)
