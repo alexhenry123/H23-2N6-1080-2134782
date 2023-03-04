@@ -10,13 +10,10 @@ os.chdir(os.path.dirname(__file__)) # Cette ligne fait que l'exécution du scrip
 # Vous devez aller chercher les informations à l'aide du module requests.
 url = "https://fakestoreapi.com"
 
-import echantillon_data
 import s1_lire_csv_ventes
 import json
 import requests as rq
-ls_client_s1 = echantillon_data.liste_clients_s1
-ls_client_s2 = echantillon_data.liste_clients_s2
-dict_client = s1_lire_csv_ventes.dict_client
+ls_client = s1_lire_csv_ventes.ls_clients
 
 res = rq.get(f"{url}/products")
 donnees_json = res.json()
@@ -27,4 +24,5 @@ for i in range(len(donnees_json)):
     categorie = donnees_json[i]["category"]
     dict_prixcategorie = {"Prix":prix,"Catégorie":categorie}
     ls_commandes += dict_prixcategorie.items()
-print(ls_commandes)
+ls_client.append(ls_commandes)
+print(ls_client)
