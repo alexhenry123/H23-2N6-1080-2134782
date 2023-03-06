@@ -14,7 +14,6 @@ def correction_espaces_supp(liste):
     for nom in liste:
         nom_corrige = nom.strip()
         liste.append(nom_corrige)
-    return liste
 correction_espaces_supp(liste_noms_groupe1)
 print(correction_espaces_supp(liste_noms_groupe1))
 
