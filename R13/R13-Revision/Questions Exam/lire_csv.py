@@ -10,14 +10,33 @@ os.chdir(os.path.dirname(__file__))
 # Finalement, imprimer la variable list_client
 
 nom_fichier = "fichier_a_lire.csv"
-list_client = []
+liste_fichier_csv = []
 
 with open(nom_fichier, 'r', encoding='utf-8') as fichier_csv:
     lecteur_csv = csv.reader(fichier_csv)
+    #Saut des lignes
     next(lecteur_csv)
-    for rangee in lecteur_csv:
-        list_client.append(rangee)
-print(list_client)
+    for ligne in lecteur_csv:
+        liste_fichier_csv.append(ligne)
+print(liste_fichier_csv)
 
 
 
+
+
+
+
+
+
+
+
+
+# nom_fichier = "fichier_a_lire.csv"
+# list_client = []
+
+# with open(nom_fichier, 'r', encoding='utf-8') as fichier_csv:
+#     lecteur_csv = csv.reader(fichier_csv)
+#     next(lecteur_csv)
+#     for rangee in lecteur_csv:
+#         list_client.append(rangee)
+# print(list_client)

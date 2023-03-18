@@ -11,30 +11,28 @@ liste_noms_groupe2 = [" Mienne Lambert", " Justin Tremblay", " Pok Holmes", "Ger
 liste_noms_groupe3 = ["Gard Longe ", " Untel Aknom ", "William Dupont III ", " Steven Stevenson  "]
 
 def correction_espaces_supp(liste):
+    liste_corrigee = []
     for nom in liste:
         nom_corrige = nom.strip()
-        liste.append(nom_corrige)
-correction_espaces_supp(liste_noms_groupe1)
-print(correction_espaces_supp(liste_noms_groupe1))
+        liste_corrigee.append(nom_corrige)
+    return liste_corrigee
+
+#Correction:
+#..."" pour les trois listes
+liste_groupe1_stripped = correction_espaces_supp(liste_noms_groupe1)
+liste_groupe2_stripped = correction_espaces_supp(liste_noms_groupe2)
+liste_groupe3_stripped = correction_espaces_supp(liste_noms_groupe3)
+
+#..."" pour les trois listes
+print(liste_groupe1_stripped)
+print(liste_groupe2_stripped)
+print(liste_groupe3_stripped)
 
 
+#Moi:
 
+#Appel
+#correction_espaces_supp(liste_noms_groupe1)
 
-#Mauvais code
-# liste_groupe1_stripped = []
-# for nom in liste_noms_groupe1:
-#     nom_corriger = nom.strip()
-#     liste_groupe1_stripped.append(nom_corriger)
-
-# liste_groupe2_stripped = []
-# for nom in liste_noms_groupe2:
-#     nom_corriger = nom.strip()
-#     liste_groupe2_stripped.append(nom_corriger)
-
-# liste_groupe3_stripped = []
-# for nom in liste_noms_groupe3:
-#     nom_corriger = nom.strip()
-#     liste_groupe3_stripped.append(nom_corriger) 
-
-# print(liste_groupe2_stripped)
-# print(liste_groupe3_stripped)
+#Imprimer résultat
+#print(correction_espaces_supp(liste_noms_groupe1))

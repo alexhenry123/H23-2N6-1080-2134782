@@ -1,6 +1,5 @@
 import json
 import os
-import requests
 os.chdir(os.path.dirname(__file__))
 
 
@@ -13,8 +12,12 @@ os.chdir(os.path.dirname(__file__))
 # Cette liste n'a pas besoin d'être formatée de facon à être lisible facilement pour l'humain
 
 nom_fichier = "json_a_lire.json"
-list_produits_electronics = []
+liste_produits_electronics = []
 
-with open(nom_fichier, 'r', encoding='utf-8') as fichier_json:
-    lignes_json = fichier_json.readlines()
-    
+with open(nom_fichier, 'r') as fichier_json:
+    texte = fichier_json.read()
+    donnee_json = json.loads(texte)
+for produit in donnee_json:
+    if produit["category"] == "electronics":
+        liste_produits_electronics.append(produit)
+print(liste_produits_electronics)

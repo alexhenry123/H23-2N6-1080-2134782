@@ -31,3 +31,19 @@ groupe_cours_prog2 = [  ['2273383', '1010', 'Carrier', 'Alexandre', '420.BU'],
 #   puis créer un répertoire pour chaque groupe,
 #   et dans ces répertoires, créer un répertoire par étudiant.
 
+if os.path.exists("prog2/groupes") == False:
+    os.makedirs("prog2/groupes")
+os.chdir("prog2/groupes")
+if os.path.exists("1010") == False:
+    os.mkdir("1010")
+if os.path.exists("1080") == False:
+    os.mkdir("1080")
+for eleve in groupe_cours_prog2:
+    if eleve[1] == "1010":
+        os.chdir("1010")
+        if os.path.exists(eleve[0]) == False:
+            os.mkdir(eleve[0])
+    elif eleve[1] == "1080":
+        os.chdir("1080")
+        if os.path.exists(eleve[0]) == False:
+            os.mkdir(eleve[0])
