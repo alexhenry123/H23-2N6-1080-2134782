@@ -20,6 +20,7 @@ montant_a_retirer = 3
 #Comptes créés
 compte_1 = Compte('12345678','chèque','888888888')
 compte_2 = Compte('23456789','épargne','888888888')
+
 #Méthodes appelées
 compte_1.deposer(montant_a_deposer)
 compte_1.retirer(montant_a_retirer)
