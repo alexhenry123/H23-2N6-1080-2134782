@@ -10,8 +10,8 @@ class Inscription:
     def confirmer(inscription):
         print(f"Félicitation {inscription.alias}! Vous êtes inscrit dans le rôle de {inscription.role}. Voici votre numéro de confirmation : {inscription.no_confirmation}")
     def canceller(inscription):
-        Inscription.no_confirmation = 0
-        print(f"Votre inscription au numéro de confirmation : {random.randint(1,100000)} a bien été annulée.")
+        print(f"Votre inscription au numéro de confirmation : {inscription.no_confirmation} a bien été annulée.")
+        inscription.no_confirmation = 0
     
 #Étape 2 : Tests et instanciations
 inscription_1 = Inscription('Gandalf le magnifique','Magicien')
@@ -19,3 +19,5 @@ inscription_2 = Inscription('Thornal le ténébreux','Guerrier')
 #Tests
 Inscription.confirmer(inscription_1)
 Inscription.canceller(inscription_1)
+Inscription.canceller(inscription_2)
+print(f"Numéro de confirmation de la deuxième inscription (après annulation) : {inscription_2.no_confirmation}")
