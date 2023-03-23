@@ -71,8 +71,8 @@ Défenseur : {defenseur_Zachary_Brault_Guillard.nb_interceptions}, {defenseur_Za
 Gardien : {gardien_Logan_Ketterer.nb_arrets}, {gardien_Logan_Ketterer.nb_tirs_essuyes}
 """)
 #Test 4
+print(f"Test 4 :")
 for joueur in equipe_CF_Montreal.liste_joueurs:
-    print(f"""Test 4 : 
-Liste de joueurs : {equipe_CF_Montreal.liste_joueurs}""")
+    print(joueur.nom)
 
 
