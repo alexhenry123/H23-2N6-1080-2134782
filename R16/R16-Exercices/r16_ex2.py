@@ -34,5 +34,3 @@ auto_Lucie = Voiture_electrique("Chevrolet","Silverado",2023,10,"argent",86000,6
 print(f"Autonomie actuelle de l'auto : {auto_Lucie.autonomie_actuelle}")
 Voiture_electrique.recharger(auto_Lucie,10)
 print(f"Autonomie actuelle de l'auto après rechargement : {auto_Lucie.autonomie_actuelle}")
-
-
