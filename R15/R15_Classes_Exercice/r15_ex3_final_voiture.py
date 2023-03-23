@@ -1,5 +1,5 @@
 class Voiture:
-    def __init__(self,modele,marque,annee,couleur,kilometrage,prix,etat) -> None:
+    def __init__(self,modele,marque,annee,couleur,kilometrage,prix,etat='neuf') -> None:
         self.modele = modele
         self.marque = marque
         self.annee = annee
@@ -7,7 +7,6 @@ class Voiture:
         self.kilometrage = kilometrage
         self.prix = prix
         self.etat = etat
-        self.etat_df = "Neuf"
     def imprimer_infos(voiture):
         print(f'{voiture.marque} {voiture.modele} {voiture.annee} de couleur {voiture.couleur}, avec seulement {voiture.kilometrage} km. Pour un prix raisonnable de {voiture.prix}$ (payable en 12 versements de {voiture.prix / 12}$) dans un état {voiture.etat}!')
 
