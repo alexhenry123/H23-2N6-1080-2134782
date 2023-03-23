@@ -17,9 +17,7 @@ class Attaquant(Joueur):
         self.nb_tirs_au_but = nb_tirs_au_but
         self.nb_assistances = nb_assistances
     def compter_but():
-        total_buts = 0
-        total_buts += Attaquant.nb_tirs_au_but + Attaquant.nb_assistances
-        return total_buts
+        Attaquant.nb_tirs_au_but+=1
 class Defenseur(Joueur):
     def __init__(self, nom, prenom, date_naissance, no_chandail, position, nb_interceptions,nb_passes):
         super().__init__(nom, prenom, date_naissance, no_chandail, position)
