@@ -1,0 +1,11 @@
+EXEMPLE DE PSEUDOCODE (r15 ex1)
+-Créer la classe Compte qui contient le numéro de compte, le type de compte, le nip du client et son solde qui sera initialisé à 0.
+
+-Pour déposer, ajouter le montant demandé au solde du client.
+
+-Pour retirer, vérifier si le montant à retirer est plus grand que le solde actuel du client.
+	Si oui:
+		Lancer un message informant le client qu'il lui manque de l'argent s'il désire retirer plus et lui montrer son solde 				actuel.
+	Si non:
+		Retirer le montant demandé au solde du client.
+		

@@ -1,0 +1,6 @@
+Flèche pleine : héritage
+Flèche normale : rapport
+
+Pseudocode : pas de conditionnel
+
+@classmethod : appel à la classe, pas aux objets de la classe
