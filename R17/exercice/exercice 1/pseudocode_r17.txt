@@ -1,0 +1,2 @@
+-Créer Département avec un id, un nom et un budget
+-Créer Achat avec notre budget et la liste d'achats
