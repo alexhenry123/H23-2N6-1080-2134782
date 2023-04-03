@@ -18,7 +18,7 @@ class Ordinateur:
     
 class Poste_de_travail(Ordinateur):
     def __init__(self,ID, adresseIP, utilisation, processeur=None, memoire_vive=None) -> None:
-        super().__init__(ID,adresseIP,utilisation,processeur,memoire_vive)     
+        super().__init__(ID,adresseIP,processeur,memoire_vive)     
         self.utilisation = utilisation 
     def installer_logiciel(self,logiciel,version) -> None:
         Poste_de_travail.logiciel = logiciel
@@ -29,27 +29,44 @@ class Poste_de_travail(Ordinateur):
     def imprimer_liste_logiciels(fichier_csv) -> None:
         print(f"{fichier_csv}")  
 
-#Charger logiciels avec lecture du fichier texte (appel d'une méthode)
-def charger_logiciels(poste_de_travail):
-    with open("logiciels2022_2023.csv","r",encoding="utf-8") as fichier_csv:
+#Charger logiciels avec lecture du fichier texte (appel d'une méthode et utilisation d'un Dictionnaire)
+    def méthode_poste_de_travail(poste_de_travail):
+     with open("logiciels2022_2023.csv","r",encoding="utf-8") as fichier_csv:
         ligne_csv = csv.reader(fichier_csv)
         next(ligne_csv)
+        dict_logiciels_prof = {"Logiciel","Version"}
+        dict_logiciels_réseau = {"Logiciel","Version"}
+        dict_logiciels_prog = {"Logiciel","Version"}       
         for ligne in fichier_csv:
             #Si le poste est celui d'un(e) professeur(e)
-            if ligne[2] == "info":                    
-                return f"""Un ordi de prof, avec l’ID {poste_de_travail.ID}, l’adresse IP {poste_de_travail.adresseIP}, une utilisation {poste_de_travail.utilisation}, le processeur {poste_de_travail.processeur} et une mémoire vive de {poste_de_travail.memoire_vive}.
-                
-            L'utilisation {poste_de_travail.utilisation} veut dire que tous les logiciels seront installés sur le poste."""
+            if ligne[2] == "info":          
+                ajout_prof = {"Logiciel":poste_de_travail.logiciel,"Version":poste_de_travail.version}          
+                dict_logiciels_prof.update(ajout_prof)
+                poste_de_travail.logiciel += dict_logiciels_prof
             #Si le poste est celui d'un étudiant en programmation
             elif ligne[2] == "info-prog":
-                return f"""Un ordi de prof, avec l’ID {poste_de_travail.ID}, l’adresse IP {poste_de_travail.adresseIP}, une utilisation {poste_de_travail.utilisation}, le processeur {poste_de_travail.processeur} et une mémoire vive de {poste_de_travail.memoire_vive}.
-                
-            L'utilisation {poste_de_travail.utilisation} veut dire que tous les logiciels seront installés sur le poste."""
+                ajout_prog = {"Logiciel":poste_de_travail.logiciel,"Version":poste_de_travail.version}          
+                dict_logiciels_prog.update(ajout_prog)
+                poste_de_travail.logiciel += dict_logiciels_prog
             #Si le poste est celui d'un étudiant en réseau
             elif ligne[2] == "info-réseau":
-                return f"""Un ordi de réseau, avec l’ID {poste_de_travail.ID}, l’adresse IP {poste_de_travail.adresseIP}, une utilisation {poste_de_travail.utilisation}, le processeur {poste_de_travail.processeur} et une mémoire vive de {poste_de_travail.memoire_vive}.
-                
-            L’utilisation {poste_de_travail.utilisation} veut dire que les logiciels'info' et 'info-réseau' seront installés sur le poste."""
+                ajout_réseau = {"Logiciel":poste_de_travail.logiciel,"Version":poste_de_travail.version}          
+                dict_logiciels_réseau.update(ajout_réseau)
+                poste_de_travail.logiciel += dict_logiciels_réseau
+            
+    def charger_logiciels(poste_de_travail):
+        if poste_de_travail.utilisation == "info":
+            print("Logiciels du prof : ")
+            for logiciel in poste_de_travail.logiciel:
+                return poste_de_travail.logiciel
+        elif poste_de_travail.utilisation == "info-prog":
+            print("Logiciels de prog :")
+            for logiciel in poste_de_travail.logiciel:
+                return poste_de_travail.logiciel
+        elif poste_de_travail.utilisation == "info-réseau":
+            print("Logiciels de réseau")
+            for logiciel in poste_de_travail.logiciel:
+                return poste_de_travail.logiciel
                                 
 #Instancier les 3 postes de travail
 poste_prof = Poste_de_travail("LPFINFOPORT001","192.168.221.21","info","par défaut","32 Go")
