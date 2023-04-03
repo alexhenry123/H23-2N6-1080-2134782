@@ -1,3 +1,4 @@
+import csv
 class Ordinateur:
     processeur = "Intel 8 core"
     memoire_vive = "16 Go"
@@ -17,12 +18,25 @@ class Ordinateur:
     
 class Poste_de_travail(Ordinateur):
     def __init__(self,ID, adresseIP, utilisation,processeur=None, memoire_vive=None) -> None:
-        pass
+        super().__init__(ID,adresseIP,utilisation,processeur,memoire_vive)
     def installer_logiciel(self,logiciel,version) -> None:
-        pass 
+        Poste_de_travail.logiciel = logiciel
+        Poste_de_travail.version = version 
     def desinstaller_logiciel(self,logiciel,version) -> None:
-        pass 
+        Poste_de_travail.logiciel -= logiciel
+        Poste_de_travail.version -= version 
     def imprimer_liste_logiciels(self) -> None:
-        pass
-    
+        print(f"{self}")
+        
+#Lecture du fichier csv
+with open("logiciels2022_2023.csv","r",encoding="utf-8") as fichier_csv:
+    ligne_csv = csv.reader(fichier_csv)
+    next(ligne_csv)
+    for ligne in fichier_csv:
+        if ligne[2] == "info":
+            pass
+        elif ligne[2] == "info-prog":
+            pass
+        elif ligne[2] == "info-réseau":
+            pass
 
