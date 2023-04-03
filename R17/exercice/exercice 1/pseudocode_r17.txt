@@ -1,2 +1,5 @@
 -Créer Département avec un id, un nom et un budget
 -Créer Achat avec notre budget et la liste d'achats
+-Lire liste d'achats et extraire liste d'équipements
+-Passer au travers de la liste d'équipements
+-Ce qu'on peut acheter est ajouté à une nouvelle liste et est retiré de la liste originelle
