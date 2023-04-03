@@ -26,7 +26,7 @@ PowerShell 5.1 (config);Exécuter le script de configuration;info-réseau
 PowerShell 7 (Core);7.2.2;info-réseau
 Putty;0.77;info-réseau
 Python;3.10.4;info-réseau
-Visual Studio Code;1.66.2;Info
+Visual Studio Code;1.66.2;info
 VMware Workstation Pro;16.2.3;info
 Windows Terminal;1.13.11431.0;info-réseau
 Wireshark;3.6.6;info-réseau
