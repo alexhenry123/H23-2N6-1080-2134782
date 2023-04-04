@@ -8,7 +8,7 @@ class Ordinateur:
         self.processeur = processeur
         self.memoire_vive = memoire_vive
     def __str__(self) -> str:
-        return f"La valeur passée de la classe Ordinateur est : {self}"
+        return self
     @classmethod
     def upgrader_processeur(cls, nouveau_processeur) -> None:
         Ordinateur.processeur = nouveau_processeur
@@ -56,17 +56,17 @@ class Poste_de_travail(Ordinateur):
             
     def charger_logiciels(poste_de_travail):
         if poste_de_travail.utilisation == "info":
-            print("Logiciels du prof : ")
+            print("Logiciels du prof :")
             for logiciel in poste_de_travail.logiciel:
-                return poste_de_travail.logiciel
+                return logiciel
         elif poste_de_travail.utilisation == "info-prog":
             print("Logiciels de prog :")
             for logiciel in poste_de_travail.logiciel:
-                return poste_de_travail.logiciel
+                return logiciel
         elif poste_de_travail.utilisation == "info-réseau":
-            print("Logiciels de réseau")
+            print("Logiciels de réseau :")
             for logiciel in poste_de_travail.logiciel:
-                return poste_de_travail.logiciel
+                return logiciel
                                 
 #Instancier les 3 postes de travail
 poste_prof = Poste_de_travail("LPFINFOPORT001","192.168.221.21","info","par défaut","32 Go")
