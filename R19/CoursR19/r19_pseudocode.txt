@@ -1,5 +1,15 @@
+Pseudocode Employe:
 -Créer la classe Employe qui comprend le id_employe, le nom, le prénom, le rôle et le salaire. 
 -Créer les classes enfants héritant de la classe Employe, soit : Programmeur, Designer et Tech_Reseau
 -Pour la classe Programmeur, y ajouter une liste de fonctions (liste_fonctions) qui comprendra les fonctions ajoutées et une méthode : 
 coder() qui sera utilisée pour y ajouter du code contenue dans la liste_fonctions
--Pour la classe Designer, y ajouter une liste d'artefacts
+-Pour la classe Designer, y ajouter une liste d'artefacts (liste_artefacts) qui comprendra les artefacts dessinés dans la fonction dessiner()
+-Pour la classe Tech_Reseau, y ajouter une liste d'interventions (liste_interventions) qui comprendra les interventions ajoutées dans la fonction intervenir().
+
+Pseudocode Equipe
+-Créer la classe Equipe qui comprend un nom, une liste d'employés et les fonctions suivantes : ajouter_employe(), enlever_employe() et imprimer_employe()
+-La méthode ajouter_employe() prendra deux variables, soit la date_debut à maintenant et la date_fin sans valeur
+-La méthode enlever_employe() donnera comme valeur à la date_fin, le moment où l'employé quitte.
+
+Pseudocode Logiciel
+-Créer la classe Logiciel qui comprend un nom, un état, une liste d'équipes et une fonction ajouter_equipe()
