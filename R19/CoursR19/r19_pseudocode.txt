@@ -1,0 +1,5 @@
+-Créer la classe Employe qui comprend le id_employe, le nom, le prénom, le rôle et le salaire. 
+-Créer les classes enfants héritant de la classe Employe, soit : Programmeur, Designer et Tech_Reseau
+-Pour la classe Programmeur, y ajouter une liste de fonctions (liste_fonctions) qui comprendra les fonctions ajoutées et une méthode : 
+coder() qui sera utilisée pour y ajouter du code contenue dans la liste_fonctions
+-Pour la classe Designer, y ajouter une liste d'artefacts
