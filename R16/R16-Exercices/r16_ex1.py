@@ -72,3 +72,5 @@ Gardien : {gardien_Logan_Ketterer.nb_arrets}, {gardien_Logan_Ketterer.nb_tirs_es
 print(f"Test 4 :")
 for joueur in equipe_CF_Montreal.liste_joueurs:
     print(joueur.nom)
+
+
