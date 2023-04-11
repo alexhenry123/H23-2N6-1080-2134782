@@ -32,16 +32,20 @@ class Poste_de_travail(Ordinateur):
         print(liste_logiciels)  
 
 #Charger logiciels avec lecture du fichier texte (appel d'une méthode et utilisation d'un Dictionnaire)
+<<<<<<< HEAD
     def charger_logiciels(poste_de_travail):
      with open('logiciels2022_2023.csv','r',encoding='utf-8') as fichier_csv:
+=======
+    def methode_poste_de_travail(poste_de_travail):
+     with open("logiciels2022_2023.csv","r",encoding="utf-8") as fichier_csv:
+>>>>>>> 97aeae4a1671f97dda08a7d1793e2f5b1673bac1
         ligne_csv = csv.reader(fichier_csv)
         next(ligne_csv)
-        dict_logiciels_prof = {"Logiciel","Version"}
-        dict_logiciels_réseau = {"Logiciel","Version"}
-        dict_logiciels_prog = {"Logiciel","Version"}       
+        dict_logiciels = {"Logiciel","Version"}
         for ligne in fichier_csv:
             #Si le poste est celui d'un(e) professeur(e)
             if ligne[2] == "info":          
+<<<<<<< HEAD
                 ajout_prof = {"Logiciel":ligne[0],"Version":ligne[1]}          
                 dict_logiciels_prof.update(ajout_prof)
             #Si le poste est celui d'un étudiant en programmation
@@ -65,6 +69,35 @@ class Poste_de_travail(Ordinateur):
     #         print("Logiciels de réseau :")
     #         for logiciel in poste_de_travail.logiciel:
     #             return logiciel
+=======
+                ajout_prof = {"Logiciel":poste_de_travail.logiciel,"Version":poste_de_travail.version}          
+                dict_logiciels.update(ajout_prof)
+                poste_de_travail.logiciel += dict_logiciels
+            #Si le poste est celui d'un étudiant en programmation
+            elif ligne[2] == "info-prog":
+                ajout_prog = {"Logiciel":poste_de_travail.logiciel,"Version":poste_de_travail.version}          
+                dict_logiciels.update(ajout_prog)
+                poste_de_travail.logiciel += dict_logiciels
+            #Si le poste est celui d'un étudiant en réseau
+            elif ligne[2] == "info-réseau":
+                ajout_réseau = {"Logiciel":poste_de_travail.logiciel,"Version":poste_de_travail.version}          
+                dict_logiciels.update(ajout_réseau)
+                poste_de_travail.logiciel += dict_logiciels
+            
+    def charger_logiciels(poste_de_travail):
+        if poste_de_travail.utilisation == "info":
+            print("Logiciels du prof :")
+            for logiciel in poste_de_travail.logiciel:
+                print(logiciel)
+        elif poste_de_travail.utilisation == "info-prog":
+            print("Logiciels de prog :")
+            for logiciel in poste_de_travail.logiciel:
+                print(logiciel)
+        elif poste_de_travail.utilisation == "info-réseau":
+            print("Logiciels de réseau :")
+            for logiciel in poste_de_travail.logiciel:
+                print(logiciel)
+>>>>>>> 97aeae4a1671f97dda08a7d1793e2f5b1673bac1
                                 
 #Instancier les 3 postes de travail
 poste_prof = Poste_de_travail("LPFINFOPORT001","192.168.221.21","info","par défaut","32 Go")
