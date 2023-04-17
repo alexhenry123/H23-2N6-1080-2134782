@@ -6,16 +6,19 @@ class Ordinateur:
     def __init__(self,ID, adresseIP, processeur=None, memoire_vive=None) -> None:
         self.ID = ID
         self.adresseIP = adresseIP
-        self.processeur = processeur
         self.memoire_vive = memoire_vive
+        if processeur != None:
+            self.processeur = processeur
+        if memoire_vive != None:
+            self.memoire_vive = memoire_vive
     def __str__(self) -> str:
         return self
     @classmethod
     def upgrader_processeur(cls, nouveau_processeur) -> None:
-        Ordinateur.processeur = nouveau_processeur
+        cls.processeur = nouveau_processeur
     @classmethod
-    def upgrader_memoire(cls, nouvelle_norme) -> None:
-        Ordinateur.memoire_vive = nouvelle_norme
+    def upgrader_memoire(cls, nouvelle_memoire) -> None:
+        cls.memoire_vive = nouvelle_memoire
     
 class Poste_de_travail(Ordinateur):
     def __init__(self,ID, adresseIP, utilisation, liste_logiciels, processeur=None, memoire_vive=None) -> None:
