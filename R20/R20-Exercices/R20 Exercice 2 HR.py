@@ -5,12 +5,16 @@
 #On a aussi des employés payés à la semaine pour un montant fixe ET qui ont aussi une commission 
 #On a aussi des employés payés à l'heure
 
-from abc import ABC,abstractmethod
+from abc import ABC, abstractmethod
 
 class Systeme_de_paie:
     @staticmethod
     def afficher_paies(ls_employes):
-        pass
+        print("Calcul de la paie des employés :")
+        for employe in ls_employes:
+            print(f"""Paie de : {employe.nom} - {employe.id_employe}
+- montant net de : {employe.calculer_paie()}
+                  """)
 class Employe(ABC):
     @abstractmethod
     def calculer_paie(self):
@@ -45,13 +49,13 @@ employe2 = Employe_heure(2, "Pierre Johnson", 40, 22)
 employe3 = Employe_Commission(3, "Luc Toupin", 1400, 600)
 
 @staticmethod
-def ajouter_employes(employe):
+def ajouter_employe(employe):
     if ls_employes != employe:
-        ls_employes += employe
+        ls_employes.append(employe)
 
-ajouter_employes(employe1)
-ajouter_employes(employe2)
-ajouter_employes(employe3)
+ajouter_employe(employe1)
+ajouter_employe(employe2)
+ajouter_employe(employe3)
 
 Systeme_de_paie.afficher_paies(ls_employes)
 
