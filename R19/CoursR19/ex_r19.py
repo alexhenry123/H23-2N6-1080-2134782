@@ -42,7 +42,7 @@ class Equipe:
         dict_employe_ajoute = {"Employé":un_employe,
                               "Date de début":un_employe.date_debut,
                               "Date de fin":un_employe.date_fin}
-        self.liste_employes.append(dict_employe_ajoute)
+        liste_employes.append(dict_employe_ajoute)
     #Incrémentation du compteur des employés actifs
         for un_employe in self.liste_employes:
             if un_employe.date_fin == None:
