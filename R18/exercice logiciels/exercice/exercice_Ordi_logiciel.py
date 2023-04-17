@@ -1,5 +1,4 @@
 import csv
-import os
 class Ordinateur:
     processeur = "Ryzen 3600"
     memoire_vive = "16 Go"
@@ -41,41 +40,30 @@ class Poste_de_travail(Ordinateur):
         next(ligne_csv)
         dict_logiciels = {"Logiciel","Version"}
         for ligne in fichier_csv:
-            #Si le poste est celui d'un(e) professeur(e)
+            #Créer dictionnaire si le poste est celui d'un(e) professeur(e)
             if ligne[2] == "info":          
                 ajout_prof = {"Logiciel":ligne[0],"Version":ligne[1]}
                 dict_logiciels.update(ajout_prof)
-            #Si le poste est celui d'un étudiant en programmation
+            #Créer dictionnaire si le poste est celui d'un étudiant en programmation
             elif ligne[2] == "info-prog":
                 ajout_prog = {"Logiciel":ligne[0],"Version":ligne[1]}          
                 dict_logiciels.update(ajout_prog)
-            #Si le poste est celui d'un étudiant en réseau
+            #Créer dictionnaire si le poste est celui d'un étudiant en réseau
             elif ligne[2] == "info-réseau":
                 ajout_réseau = {"Logiciel":ligne[0],"Version":ligne[1]}          
                 dict_logiciels.update(ajout_réseau)     
-    # def charger_logiciels(poste_de_travail):
-    #     if poste_de_travail.utilisation == "info":
-    #         print("Logiciels du prof :")
-    #         for logiciel in poste_de_travail.logiciel:
-    #             return logiciel
-    #     elif poste_de_travail.utilisation == "info-prog":
-    #         print("Logiciels de prog :")
-    #         for logiciel in poste_de_travail.logiciel:
-    #             return logiciel
-    #     elif poste_de_travail.utilisation == "info-réseau":
-    #         print("Logiciels de réseau :")
-    #         for logiciel in poste_de_travail.logiciel:
-    #             return logiciel
+            #Si le poste est celui d'un(e) professeur(e)
+            if ligne[2] == "info":
                 ajout_prof = {"Logiciel":poste_de_travail.logiciel,"Version":poste_de_travail.version}          
                 dict_logiciels.update(ajout_prof)
                 poste_de_travail.logiciel += dict_logiciels
             #Si le poste est celui d'un étudiant en programmation
-            elif ligne[2] == "info-prog":
+            if ligne[2] == "info-prog":
                 ajout_prog = {"Logiciel":poste_de_travail.logiciel,"Version":poste_de_travail.version}          
                 dict_logiciels.update(ajout_prog)
                 poste_de_travail.logiciel += dict_logiciels
             #Si le poste est celui d'un étudiant en réseau
-            elif ligne[2] == "info-réseau":
+            if ligne[2] == "info-réseau":
                 ajout_réseau = {"Logiciel":poste_de_travail.logiciel,"Version":poste_de_travail.version}          
                 dict_logiciels.update(ajout_réseau)
                 poste_de_travail.logiciel += dict_logiciels

@@ -9,21 +9,38 @@ from abc import ABC,abstractmethod
 
 class Systeme_de_paie:
     pass
-            
+    @staticmethod
+    def afficher_paie():
+        pass
 class Employe(ABC):
-    pass
-    
-class Employe_salarie(Employe):
-    pass
- 
+    @abstractmethod
+    def calculer_paie(self):
+        pass
+    def __init__(self, id_employe, nom):
+        self.id_employe = id_employe
+        self.nom = nom
+class Employe_salaire(Employe):
+    def __init__(self, id_employe, nom, salaire_par_semaine):
+        super().__init__(id_employe, nom)
+        self.salaire_par_semaine = salaire_par_semaine
+    def calculer_paie(self):
+        pass
 class Employe_heure(Employe):  
-   pass
+    def __init__(self, id_employe, nom, heures_travaillees, taux_horaire):
+       super().__init__(id_employe, nom)
+       self.heures_travaillees = heures_travaillees
+       self.taux_horaire = taux_horaire
+    def calculer_paie(self):
+        pass
     
-class Employe_Commission(Employe_salarie):  
-    pass
- 
+class Employe_Commission(Employe_salaire):  
+    def __init__(self, id_employe, nom, salaire_par_semaine, commission):
+        super().__init__(id_employe, nom, salaire_par_semaine)
+        self.commission = commission
+    def calculer_paie(self):
+        pass 
 
-#instanciation des objets 
+#Instanciation des objets 
 
 
  
