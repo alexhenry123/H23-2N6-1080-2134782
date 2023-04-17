@@ -46,12 +46,12 @@ class Equipe:
     #Incrémentation du compteur des employés actifs
         for un_employe in self.liste_employes:
             if un_employe.date_fin == None:
-                self.compteur_employes_actifs +=1 
+                compteur_employes_actifs +=1 
     #Impression du dictionnaire 
         print(f"L'employé suivant a été ajouté : {dict_employe_ajoute}")
     def enlever_employe(self, un_employe):
         un_employe.date_fin = datetime.date.today()
-    def imprimer_employes(nom_equipe):
+    def imprimer_employes(self, nom_equipe):
         nom_equipe.liste_employes
 
 class Logiciel:
@@ -60,5 +60,5 @@ class Logiciel:
         self.etat = etat
         liste_equipes = []
         self.liste_equipes = liste_equipes
-    def ajouter_quipe(nom_equipe):
-        nom_equipe.liste_equipes.append(nom_equipe)
+    def ajouter_quipe(self, nom_equipe):
+        Logiciel.liste_equipes.append(nom_equipe)
