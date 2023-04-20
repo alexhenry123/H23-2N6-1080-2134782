@@ -2,26 +2,45 @@
 # Maintenant que nous sommes plus expérimentés, 
 # nous allons mieux encapsuler les attributs de nos classes.
 
-#Voyez l'énoncé pour voir ce que vous devez faire
-
+# Voyez l'énoncé pour voir ce que vous devez faire
 class Terrain:
     def __init__(self,nom,couleur,est_a_vendre,prix) -> None:
-        self.nom = nom
-        self.couleur = couleur
-        self.prix = prix
-        
+        self._nom = nom
+        self._couleur = couleur
+        self._prix = prix
+        @nom.setter
+        def nom(self,nom):
+            return "Il est impossible de changer le nom."
+        @couleur.setter
+        def couleur(self,couleur):
+            return "Il est impossible de changer la couleur."
+        @prix.setter
+        def prix(self,nvx_prix):
+            try:
+                if nvx_prix > self._prix:
+                    self._prix = nvx_prix
+            except ValueError:
+                print("La nouvelle valeur doit être supérieure à l'ancienne.")                
     def __str__(self) -> str:
         return self.nom
-
 class Banque:
-    def __init__(self,montant_cash,list_terrains) -> None:
-        self.montant_cash = montant_cash
+    def __init__(self,montant_cash,list_terrains, montant_parc_immobilier) -> None:
+        self._montant_cash = montant_cash
         self.list_terrains = list_terrains
-
+        self._montant_parc_immobilier = montant_parc_immobilier
+        @montant_cash.setter
+        def montant_cash(self,nvx_montant_cash):
+            try:
+                if isinstance(nvx_montant_cash, float):
+                    self._montant_cash == nvx_montant_cash
+                    print(f"Le montant a été changé pour {self._montant_cash}")
+            except ValueError:
+                print("Le montant cash doit être une valeur décimale (00.0).")
 class Joueur:
     def __init__(self,montant_cash,list_terrains) -> None:
-        self.montant_cash = montant_cash
+        self._montant_cash = montant_cash
         self.list_terrains = list_terrains
+
 
     def acheter(self,proprietaire,terrain:Terrain): 
         if self.montant_cash >= terrain.prix:
@@ -35,7 +54,6 @@ class Joueur:
         else:
             print("Vous n'avez pas suffisament d'argent.")
        
-            
 #-	‘Avenue Kentucky’, rouge, 220000
 #-	‘Avenue Pennsylvanie’, vert, 320000
 #-	‘Promenade’, bleu, 400000
@@ -51,53 +69,85 @@ joueur1 = Joueur(1000000,[])
 joueur2 = Joueur(1000000,[])
 
 
-print("joueur1 essaie d'acheter à la banque le terrain promenade")
-joueur1.acheter(banque,promenade)
-
-print('infos du joueur 1')
-print(joueur1.montant_cash)
-for terrain in joueur1.list_terrains:
-    print(terrain)
-#print(joueur1.list_terrains)
-
-print('infos de la banque')
-print(banque.montant_cash)
-for terrain in banque.list_terrains:
-    print(terrain)
-#print(banque.list_terrains)
 
 
-print("joueur2 essaie d'acheter au joueur1 le terrain promenade")
-joueur2.acheter(joueur1,promenade)
-print('infos du joueur 2')
-print(joueur2.montant_cash)
-for terrain in joueur2.list_terrains:
-    print(terrain)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# print("joueur1 essaie d'acheter à la banque le terrain promenade")
+# joueur1.acheter(banque,promenade)
+
+# print('infos du joueur 1')
+# print(joueur1.montant_cash)
+# for terrain in joueur1.list_terrains:
+#     print(terrain)
+# #print(joueur1.list_terrains)
+
+# print('infos de la banque')
+# print(banque.montant_cash)
+# for terrain in banque.list_terrains:
+#     print(terrain)
+# #print(banque.list_terrains)
+
+
+# print("joueur2 essaie d'acheter au joueur1 le terrain promenade")
+# joueur2.acheter(joueur1,promenade)
+# print('infos du joueur 2')
+# print(joueur2.montant_cash)
+# for terrain in joueur2.list_terrains:
+#     print(terrain)
     
-print('infos du joueur 1')
-print(joueur1.montant_cash)
-for terrain in joueur1.list_terrains:
-    print(terrain)
+# print('infos du joueur 1')
+# print(joueur1.montant_cash)
+# for terrain in joueur1.list_terrains:
+#     print(terrain)
     
-print('infos de la banque')
-print(banque.montant_cash)
-for terrain in banque.list_terrains:
-    print(terrain)    
+# print('infos de la banque')
+# print(banque.montant_cash)
+# for terrain in banque.list_terrains:
+#     print(terrain)    
 
-print("joueur2 essaie d'acheter au joueur1 un terrain que le joueur1 n'a pas")
-# joueur2 essaie d'acheter au joueur1 un terrain que le joueur1 n'a pas
-joueur2.acheter(joueur1,kentucky)
-print('infos du joueur 1')
-print(joueur1.montant_cash)
-for terrain in joueur1.list_terrains:
-    print(terrain)
+# print("joueur2 essaie d'acheter au joueur1 un terrain que le joueur1 n'a pas")
+# # joueur2 essaie d'acheter au joueur1 un terrain que le joueur1 n'a pas
+# joueur2.acheter(joueur1,kentucky)
+# print('infos du joueur 1')
+# print(joueur1.montant_cash)
+# for terrain in joueur1.list_terrains:
+#     print(terrain)
     
-print('infos du joueur 2')
-print(joueur2.montant_cash)
-for terrain in joueur2.list_terrains:
-    print(terrain)
+# print('infos du joueur 2')
+# print(joueur2.montant_cash)
+# for terrain in joueur2.list_terrains:
+#     print(terrain)
     
-print('infos de la banque')
-print(banque.montant_cash)
-for terrain in banque.list_terrains:
-    print(terrain)   
+# print('infos de la banque')
+# print(banque.montant_cash)
+# for terrain in banque.list_terrains:
+#     print(terrain)   
