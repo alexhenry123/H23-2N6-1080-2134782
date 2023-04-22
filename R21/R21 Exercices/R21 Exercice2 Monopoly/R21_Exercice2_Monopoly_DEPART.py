@@ -8,12 +8,12 @@ class Terrain:
         self._nom = nom
         self._couleur = couleur
         self._prix = prix
-        @nom.setter
-        def nom(self,nom):
-            return "Il est impossible de changer le nom."
-        @couleur.setter
-        def couleur(self,couleur):
-            return "Il est impossible de changer la couleur."
+        # @nom.setter
+        # def nom(self, nom):
+        #     return "Il est impossible de changer le nom."
+        # @couleur.setter
+        # def couleur(self):
+        #     return "Il est impossible de changer la couleur."
         @prix.setter
         def prix(self,nvx_prix):
             try:
@@ -24,9 +24,9 @@ class Terrain:
     def __str__(self) -> str:
         return self.nom
 class Banque:
-    def __init__(self,montant_cash,list_terrains, montant_parc_immobilier) -> None:
+    def __init__(self,montant_cash,liste_terrains, montant_parc_immobilier) -> None:
         self._montant_cash = montant_cash
-        self.list_terrains = list_terrains
+        self.liste_terrains = liste_terrains
         self._montant_parc_immobilier = montant_parc_immobilier
         @montant_cash.setter
         def montant_cash(self,nvx_montant_cash):
@@ -36,11 +36,16 @@ class Banque:
                     print(f"Le montant a été changé pour {self._montant_cash}")
             except ValueError:
                 print("Le montant cash doit être une valeur décimale (00.0).")
+    @staticmethod
+    def calculer_montant_immobilier(liste_terrains):
+        somme_terrains = 0
+        for terrain in liste_terrains:
+            somme_terrains += terrain
+        return somme_terrains
 class Joueur:
     def __init__(self,montant_cash,list_terrains) -> None:
         self._montant_cash = montant_cash
         self.list_terrains = list_terrains
-
 
     def acheter(self,proprietaire,terrain:Terrain): 
         if self.montant_cash >= terrain.prix:
@@ -53,7 +58,9 @@ class Joueur:
                 print("Désolé, je n'ai pas ce terrain à vendre")
         else:
             print("Vous n'avez pas suffisament d'argent.")
-       
+
+# -----Tests et instanciations------
+
 #-	‘Avenue Kentucky’, rouge, 220000
 #-	‘Avenue Pennsylvanie’, vert, 320000
 #-	‘Promenade’, bleu, 400000
@@ -67,6 +74,13 @@ banque = Banque(22000000,[kentucky,pennsylvanie,promenade])
 
 joueur1 = Joueur(1000000,[])
 joueur2 = Joueur(1000000,[])
+
+liste_terrains = []
+liste_terrains.append(kentucky.prix, pennsylvanie.prix, promenade.prix)
+
+Banque.calculer_montant_immobilier(liste_terrains)
+
+promenade._couleur
 
 
 
