@@ -80,8 +80,7 @@ liste_terrains.append(kentucky.prix, pennsylvanie.prix, promenade.prix)
 
 Banque.calculer_montant_immobilier(liste_terrains)
 
-promenade._couleur
-
+print("allo")
 
 
 
