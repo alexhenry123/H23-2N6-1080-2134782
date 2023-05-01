@@ -14,35 +14,36 @@ class MyFrameAfficher(customtkinter.CTkFrame):
         self.label = customtkinter.CTkLabel(self, text="Employe Courant")
         self.label.grid(row=0, column=1, padx=5, pady=5)
         
-        self.btn_precedent = customtkinter.CTkButton(master=self, text="Précédent", font = ("inter",14))
+        self.btn_precedent = customtkinter.CTkButton(master=self, text="Précédent",command=self.aller_au_precedent, font = ("inter",14))
         self.btn_precedent.grid(row=1, column=0, padx=5, pady=5)
         
         self.nom = customtkinter.CTkEntry(master=self,  font = ("inter",14),width=300)
         self.nom.grid(row=1, column=1, padx=5, pady=5)
         self.nom.insert(0,ls_employes[0])
         
-        self.btn_suivant = customtkinter.CTkButton(master=self, text="Suivant", font = ("inter",14))
+        self.btn_suivant = customtkinter.CTkButton(master=self, text="Suivant",command=self.aller_au_suivant, font = ("inter",14))
         self.btn_suivant.grid(row=1, column=2, padx=5, pady=5)
         
     def aller_au_precedent(self):
+        global index_courant
         if index_courant == 0:
             index_courant = len(ls_employes)-1
         else:
             index_courant -= 1
-        texte_courant_nom = self.label._text.get()
+        texte_courant_nom = self.nom.get()
         self.nom.delete(0,len(texte_courant_nom))
-        self.nom.insert(ls_employes[index_courant])
+        self.nom.insert(0,ls_employes[index_courant])
         
     def aller_au_suivant(self):
+        global index_courant
         if index_courant == len(ls_employes)-1:
             index_courant = 0
         else:
             index_courant += 1
-        text_courant_nom = self.label._text.get()
+        text_courant_nom = self.nom.get()
         self.nom.delete(0,len(text_courant_nom))
-        self.nom.insert(ls_employes[index_courant])
+        self.nom.insert(0,ls_employes[index_courant])
         
-
 class MyFrameModifier(customtkinter.CTkFrame):
     def __init__(self, master, **kwargs):
         super().__init__(master, **kwargs)
@@ -71,18 +72,30 @@ class MyFrameModifier(customtkinter.CTkFrame):
             if len(self.nouveau_nom) > 2:
                 for employe in ls_employes:
                     if employe == self.nouveau_nom:
-                        return f"Le nom '{self.nouveau_nom}' est déjà dans la liste d'employés. Veuillez choisir un autre nom."
+                        self.avertissement.configure(f"Le nom '{self.nouveau_nom}' est déjà dans la liste d'employés. Veuillez choisir un autre nom.")
                     else:
                         ls_employes.append(self.nouveau_nom)
+                        return f"Le nom '{self.nouveau_nom}' a été ajouté."
             else:
-                return f"""Le nom '{self.nouveau_nom}' est un nom invalide car il n'est pas assez long. 
-            Veuillez entrer un nom avec une longueur d'au moins deux caractères."""
+                self.avertissement.configure(f"""Le nom '{self.nouveau_nom}' est un nom invalide car il n'est pas assez long. 
+            Veuillez entrer un nom avec une longueur d'au moins deux caractères.""")
         except:
-            pass
+            raise TypeError("Le nom entré doit être un string.")
      
     def enlever(self):
-        pass
-
+        try:
+            if len(self.nouveau_nom) > 2:
+                for employe in ls_employes:
+                    if employe != self.nouveau_nom:
+                        self.avertissement.configure(f"Le nom '{self.nouveau_nom}' n'est pas dans la liste d'employés. Veuillez choisir un nom présent dans la liste d'employés.")
+                    else:
+                        ls_employes.remove(self.nouveau_nom)
+                        return f"Le nom '{self.nouveau_nom}' a été retiré."
+            else:
+                return self.avertissement.configure(f"""Le nom '{self.nouveau_nom}' est un nom invalide car il n'est pas assez long. 
+            Veuillez entrer un nom avec une longueur d'au moins deux caractères.""")
+        except:
+            raise TypeError("Le nom entré doit être un string.")
 class App(customtkinter.CTk):
     global ls_employes
     ls_employes = ['Pierre-Paul Gallant', 'Maxime Pelletier']
