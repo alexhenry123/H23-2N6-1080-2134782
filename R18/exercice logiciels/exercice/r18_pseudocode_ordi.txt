@@ -1,0 +1,11 @@
+R18 PSEUDOCODE EXERCICE ORDI LOGICIEL
+
+-Lire le fichier texte ligne par ligne
+-Vérifier quelle est l'utilisation du logiciel (...)
+ 	Si sa valeur est 'info':
+		Installer dans tous les postes de travail
+ 	Si sa valeur est 'info-réseau':
+		Installer dans tous les postes de réseau:
+	Si sa valeur est 'info-prog':
+		Installer dans tous les postes de programmation
+	

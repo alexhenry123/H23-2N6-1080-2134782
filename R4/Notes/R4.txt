@@ -1,0 +1,12 @@
+Espaces compris dans l'affichage : print(f""" [...] """)
+
+Répertoire source : chemin = os.path.dirname(__file__)
+
+# différentes fonctions du sous-module path. Le fichier dem
+print(os.path.basename(f'{chemin}/demo6.txt'))  # 'demo6.txt'
+print(os.path.dirname(f'{chemin}/demo6.txt'))   # 'c:\\Users\\......\\R04_demo'
+print(os.path.split(f'{chemin}/demo6.txt'))     # ('c:\\Users\\......\\R04_demo', 'demo6.txt')
+print(os.path.exists(f'{chemin}/demo6.txt'))    # True
+print(os.path.isfile(f'{chemin}/demo6.txt'))    # True
+print(os.path.isdir(f'{chemin}/demo6.txt'))     # False
+print(os.path.splitext(f'{chemin}/demo6.txt'))  #('c:\\Users\\......\\R04_demo', '.txt')#
