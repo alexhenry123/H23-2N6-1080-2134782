@@ -1,0 +1,95 @@
+import customtkinter
+import time
+
+class MyFrameAfficher(customtkinter.CTkFrame):
+ 
+    def __init__(self, master, **kwargs):
+        super().__init__(master, **kwargs)
+
+        self.grid_rowconfigure((0,1), weight=1)  # configure grid system
+        self.grid_columnconfigure((0,1,2), weight=1)
+        
+        # add widgets onto the frame...
+        self.label = customtkinter.CTkLabel(self, text="Employe Courant")
+        self.label.grid(row=0, column=1, padx=5, pady=5)
+        
+        self.btn_precedent = customtkinter.CTkButton( master=self, text="Précédent", font = ("inter",14))
+        self.btn_precedent.grid(row=1, column=0, padx=5, pady=5)
+        
+        self.nom = customtkinter.CTkEntry(master=self,  font = ("inter",14),width=300)
+        self.nom.grid(row=1, column=1, padx=5, pady=5)
+        self.nom.insert(0,ls_employes[0])
+        
+        self.btn_suivant = customtkinter.CTkButton( master=self, text="Suivant", font = ("inter",14))
+        self.btn_suivant.grid(row=1, column=2, padx=5, pady=5)
+        
+     
+    def aller_au_precedent(self):
+       pass
+                
+    def aller_au_suivant(self):
+       pass
+    
+
+        
+               
+class MyFrameModifier(customtkinter.CTkFrame):
+
+    def __init__(self, master, **kwargs):
+        super().__init__(master, **kwargs)
+
+        self.grid_rowconfigure((0,1,2,3), weight=1)  # configure grid system
+        self.grid_columnconfigure((0,1,2), weight=1)
+        
+        # add widgets onto the frame...
+        self.label = customtkinter.CTkLabel(self, text="Ajouter/Enlever un employé")
+        self.label.grid(row=0, column=1, padx=5, pady=5)
+       
+     
+        self.btn_ajouter = customtkinter.CTkButton( master=self, text="Ajouter", font = ("inter",14))
+        self.btn_ajouter.grid(row=1, column=1, padx=5, pady=5)
+        
+        self.nouveau_nom = customtkinter.CTkEntry(master=self, placeholder_text="Entrez un nom d'employé",width=400 ,font = ("inter",14))
+        self.nouveau_nom.grid(row=2, column=1, padx=5, pady=5, columnspan=1, sticky="nsew")  
+        
+        self.avertissement = customtkinter.CTkLabel(self, text=" ", width=180 )
+        self.avertissement.grid(row=3, column=1, padx=5, pady=5)
+        
+        self.btn_enlever = customtkinter.CTkButton( master=self, text="Enlever", font = ("inter",14))
+        self.btn_enlever.grid(row=4, column=1, padx=5, pady=5)     
+
+    def ajouter(self):
+        pass
+     
+    def enlever(self):
+       pass
+
+          
+
+        
+                
+class App(customtkinter.CTk):
+    global ls_employes
+    ls_employes = ['Pierre-Paul Gallant', 'Maxime Pelletier']
+    global index_courant
+    index_courant = 0
+         
+    def __init__(self):
+        super().__init__()
+        self.geometry("450x300")
+        self.title="Liste des employés"
+        self.resizable(False, False)   #On ne peut pas changer la grandeur de la fenêtre
+        self.grid_rowconfigure((0,1,2,3,4,5,6), weight=1)  # configure grid system
+        self.grid_columnconfigure((0,1,2,3), weight=1)
+        
+         
+        self.pour_afficher = MyFrameAfficher(master=self,width=600, corner_radius=0)
+        self.pour_afficher.grid(row=0, column=0, padx=2, pady=2)
+        
+        self.pour_modifier = MyFrameModifier(master=self,width=600, corner_radius=0)
+        self.pour_modifier.grid(row=6, column=0, padx=30, pady=2 , sticky="EW")
+
+
+app = App()
+
+app.mainloop()
