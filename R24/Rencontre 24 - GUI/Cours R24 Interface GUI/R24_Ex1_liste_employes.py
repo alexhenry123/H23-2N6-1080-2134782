@@ -55,7 +55,7 @@ class MyFrameModifier(customtkinter.CTkFrame):
         self.label = customtkinter.CTkLabel(self, text="Ajouter/Enlever un employé")
         self.label.grid(row=0, column=1, padx=5, pady=5)
        
-        self.btn_ajouter = customtkinter.CTkButton(master=self, text="Ajouter", font = ("inter",14))
+        self.btn_ajouter = customtkinter.CTkButton(master=self, text="Ajouter", command=self.ajouter, font = ("inter",14))
         self.btn_ajouter.grid(row=1, column=1, padx=5, pady=5)
         
         self.nouveau_nom = customtkinter.CTkEntry(master=self, placeholder_text="Entrez un nom d'employé",width=400 ,font = ("inter",14))
@@ -64,12 +64,12 @@ class MyFrameModifier(customtkinter.CTkFrame):
         self.avertissement = customtkinter.CTkLabel(self, text=" ", width=180 )
         self.avertissement.grid(row=3, column=1, padx=5, pady=5)
         
-        self.btn_enlever = customtkinter.CTkButton(master=self, text="Enlever", font = ("inter",14))
+        self.btn_enlever = customtkinter.CTkButton(master=self, text="Enlever",command=self.enlever, font = ("inter",14))
         self.btn_enlever.grid(row=4, column=1, padx=5, pady=5)     
     
     def ajouter(self):
-        try:
-            if len(self.nouveau_nom) > 2:
+        # try:
+            if len(self.nouveau_nom.get()) > 2:
                 for employe in ls_employes:
                     if employe == self.nouveau_nom:
                         self.avertissement.configure(f"Le nom '{self.nouveau_nom}' est déjà dans la liste d'employés. Veuillez choisir un autre nom.")
@@ -77,14 +77,13 @@ class MyFrameModifier(customtkinter.CTkFrame):
                         ls_employes.append(self.nouveau_nom)
                         return f"Le nom '{self.nouveau_nom}' a été ajouté."
             else:
-                self.avertissement.configure(f"""Le nom '{self.nouveau_nom}' est un nom invalide car il n'est pas assez long. 
-            Veuillez entrer un nom avec une longueur d'au moins deux caractères.""")
-        except:
-            raise TypeError("Le nom entré doit être un string.")
+                self.avertissement.configure(f"Le nom '{self.nouveau_nom}' est un nom invalide car il n'est pas assez long.")
+        # except:
+        #     raise TypeError("Le nom entré doit être un string.")
      
     def enlever(self):
         try:
-            if len(self.nouveau_nom) > 2:
+            if len(self.nouveau_nom.get()) > 2:
                 for employe in ls_employes:
                     if employe != self.nouveau_nom:
                         self.avertissement.configure(f"Le nom '{self.nouveau_nom}' n'est pas dans la liste d'employés. Veuillez choisir un nom présent dans la liste d'employés.")
@@ -92,8 +91,7 @@ class MyFrameModifier(customtkinter.CTkFrame):
                         ls_employes.remove(self.nouveau_nom)
                         return f"Le nom '{self.nouveau_nom}' a été retiré."
             else:
-                return self.avertissement.configure(f"""Le nom '{self.nouveau_nom}' est un nom invalide car il n'est pas assez long. 
-            Veuillez entrer un nom avec une longueur d'au moins deux caractères.""")
+                return self.avertissement.configure(f"Le nom '{self.nouveau_nom}' est un nom invalide car il n'est pas assez long.")
         except:
             raise TypeError("Le nom entré doit être un string.")
 class App(customtkinter.CTk):
