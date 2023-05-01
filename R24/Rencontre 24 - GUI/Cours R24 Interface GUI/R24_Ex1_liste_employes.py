@@ -4,7 +4,6 @@ import customtkinter
 import time
 
 class MyFrameAfficher(customtkinter.CTkFrame):
- 
     def __init__(self, master, **kwargs):
         super().__init__(master, **kwargs)
 
@@ -26,8 +25,6 @@ class MyFrameAfficher(customtkinter.CTkFrame):
         self.btn_suivant.grid(row=1, column=2, padx=5, pady=5)
         
     def aller_au_precedent(self):
-        self.btn_precedent = customtkinter.CTkButton(master=self, text="Précédent", font = ("inter",14))
-        self.btn_precedent.grid(row=1, column=0, padx=5, pady=5)
         if index_courant == 0:
             index_courant = len(ls_employes)-1
         else:
@@ -37,8 +34,6 @@ class MyFrameAfficher(customtkinter.CTkFrame):
         self.nom.insert(ls_employes[index_courant])
         
     def aller_au_suivant(self):
-        self.btn_suivant = customtkinter.CTkButton(master=self, text="Suivant", font = ("inter",14))
-        self.btn_suivant.grid(row=1, column=2, padx=5, pady=5)
         if index_courant == len(ls_employes)-1:
             index_courant = 0
         else:
@@ -49,7 +44,6 @@ class MyFrameAfficher(customtkinter.CTkFrame):
         
 
 class MyFrameModifier(customtkinter.CTkFrame):
-
     def __init__(self, master, **kwargs):
         super().__init__(master, **kwargs)
 
@@ -73,13 +67,21 @@ class MyFrameModifier(customtkinter.CTkFrame):
         self.btn_enlever.grid(row=4, column=1, padx=5, pady=5)     
     
     def ajouter(self):
-        self.btn_ajouter = customtkinter.CTkButton(master=self, text="Ajouter", font = ("inter",14))
-        self.btn_ajouter.grid(row=1, column=1, padx=5, pady=5)
+        try:
+            if len(self.nouveau_nom) > 2:
+                for employe in ls_employes:
+                    if employe == self.nouveau_nom:
+                        return f"Le nom '{self.nouveau_nom}' est déjà dans la liste d'employés. Veuillez choisir un autre nom."
+                    else:
+                        ls_employes.append(self.nouveau_nom)
+            else:
+                return f"""Le nom '{self.nouveau_nom}' est un nom invalide car il n'est pas assez long. 
+            Veuillez entrer un nom avec une longueur d'au moins deux caractères."""
+        except:
+            pass
      
     def enlever(self):
-        self.btn_enlever = customtkinter.CTkButton(master=self, text="Enlever", font = ("inter",14))
-        self.btn_enlever.grid(row=4, column=1, padx=5, pady=5)
-
+        pass
 
 class App(customtkinter.CTk):
     global ls_employes
