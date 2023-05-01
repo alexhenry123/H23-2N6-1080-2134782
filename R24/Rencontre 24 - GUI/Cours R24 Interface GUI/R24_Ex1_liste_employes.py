@@ -1,4 +1,5 @@
 from ast import Delete
+from distutils.cmd import Command
 from operator import index, truediv
 import customtkinter
 import time
@@ -58,42 +59,43 @@ class MyFrameModifier(customtkinter.CTkFrame):
         self.btn_ajouter = customtkinter.CTkButton(master=self, text="Ajouter", command=self.ajouter, font = ("inter",14))
         self.btn_ajouter.grid(row=1, column=1, padx=5, pady=5)
         
-        self.nouveau_nom = customtkinter.CTkEntry(master=self, placeholder_text="Entrez un nom d'employé",width=400 ,font = ("inter",14))
+        self.nouveau_nom = customtkinter.CTkEntry(master=self, placeholder_text="Entrez un nom d'employé",width=400,font = ("inter",14))
         self.nouveau_nom.grid(row=2, column=1, padx=5, pady=5, columnspan=1, sticky="nsew")  
         
-        self.avertissement = customtkinter.CTkLabel(self, text=" ", width=180 )
+        self.avertissement = customtkinter.CTkLabel(self, text=" ",command=self.enlever, width=180 )
         self.avertissement.grid(row=3, column=1, padx=5, pady=5)
         
         self.btn_enlever = customtkinter.CTkButton(master=self, text="Enlever",command=self.enlever, font = ("inter",14))
         self.btn_enlever.grid(row=4, column=1, padx=5, pady=5)     
     
     def ajouter(self):
-        # try:
+        try:
             if len(self.nouveau_nom.get()) > 2:
                 for employe in ls_employes:
                     if employe == self.nouveau_nom:
-                        self.avertissement.configure(f"Le nom '{self.nouveau_nom}' est déjà dans la liste d'employés. Veuillez choisir un autre nom.")
+                        self.avertissement.configure(f"Le nom '{self.nouveau_nom.get()}' est déjà dans la liste d'employés. Veuillez choisir un autre nom.")
                     else:
-                        ls_employes.append(self.nouveau_nom)
-                        return f"Le nom '{self.nouveau_nom}' a été ajouté."
+                        ls_employes.append(self.nouveau_nom.get())
+                        return f"Le nom '{self.nouveau_nom.get()}' a été ajouté."
             else:
-                self.avertissement.configure(f"Le nom '{self.nouveau_nom}' est un nom invalide car il n'est pas assez long.")
-        # except:
-        #     raise TypeError("Le nom entré doit être un string.")
+                self.avertissement.configure(f"Le nom '{self.nouveau_nom.get()}' est un nom invalide car il n'est pas assez long.")
+        except:
+            self.avertissement.configure("Le nom entré doit être un string.")
      
     def enlever(self):
         try:
             if len(self.nouveau_nom.get()) > 2:
                 for employe in ls_employes:
                     if employe != self.nouveau_nom:
-                        self.avertissement.configure(f"Le nom '{self.nouveau_nom}' n'est pas dans la liste d'employés. Veuillez choisir un nom présent dans la liste d'employés.")
+                        self.avertissement.configure(f"Le nom '{self.nouveau_nom.get()}' n'est pas dans la liste d'employés. Veuillez choisir un nom présent dans la liste d'employés.")
                     else:
-                        ls_employes.remove(self.nouveau_nom)
-                        return f"Le nom '{self.nouveau_nom}' a été retiré."
+                        ls_employes.remove(self.nouveau_nom.get())
+                        return f"Le nom '{self.nouveau_nom.get()}' a été retiré."
             else:
-                return self.avertissement.configure(f"Le nom '{self.nouveau_nom}' est un nom invalide car il n'est pas assez long.")
+                return self.avertissement.configure(f"Le nom '{self.nouveau_nom.get()}' est un nom invalide car il n'est pas assez long.")
         except:
-            raise TypeError("Le nom entré doit être un string.")
+            self.avertissement.configure("Le nom entré doit être un string.")
+            
 class App(customtkinter.CTk):
     global ls_employes
     ls_employes = ['Pierre-Paul Gallant', 'Maxime Pelletier']
@@ -112,9 +114,8 @@ class App(customtkinter.CTk):
         self.pour_afficher.grid(row=0, column=0, padx=2, pady=2)
         
         self.pour_modifier = MyFrameModifier(master=self,width=600, corner_radius=0)
-        self.pour_modifier.grid(row=6, column=0, padx=30, pady=2 , sticky="EW")
+        self.pour_modifier.grid(row=6, column=0, padx=30, pady=2)
         
-
 app = App()
 
 app.mainloop()
