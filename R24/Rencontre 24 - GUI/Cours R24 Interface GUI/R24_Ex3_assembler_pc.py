@@ -27,8 +27,6 @@ appPrix = {"AMD Ryzen 9 5950X         ":669.98,
 
 # App Class
 class App(ctk.CTk):
-    # ta play liste
-    ls_chansons = []
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -98,7 +96,7 @@ class App(ctk.CTk):
                                     text="Commence par choisir tes composantes",width=200,
                                height=25)
         self.lbl_message.grid(row=4, column=1,
-                                padx=5,pady=(0,5) ,sticky="ew")  #enlevé sticky="ew"
+                                padx=5,pady=(0,5) ,sticky="ew")  #enlever sticky="ew"
     # Pour obtenir un estimé
     def estimer(self):
         pass             

@@ -25,8 +25,7 @@ class MyFrameChoisir(customtkinter.CTkFrame):
                                height=25)
         self.nom.grid(row=0, column=1,
                         columnspan=3, padx=100,
-                        pady=5, sticky="w")     #, sticky="ew"
-
+                        pady=5, sticky="w")   
 
 
         # CTkOptionMenu  pour les choix des chansons
@@ -80,7 +79,6 @@ class MyFrameChoisir(customtkinter.CTkFrame):
         pass
 
            
-
 class App(customtkinter.CTk):
          
     def __init__(self):
@@ -105,8 +103,6 @@ class App(customtkinter.CTk):
         self.pour_choisir = MyFrameChoisir(master=self,width=600, corner_radius=0)
         self.pour_choisir.grid(row=0, column=0, padx=2, pady=2)
         
-
-
 
 app = App()
 app.mainloop()
