@@ -1,4 +1,5 @@
-from operator import truediv
+from ast import Delete
+from operator import index, truediv
 import customtkinter
 import time
 
@@ -27,11 +28,25 @@ class MyFrameAfficher(customtkinter.CTkFrame):
     def aller_au_precedent(self):
         self.btn_precedent = customtkinter.CTkButton(master=self, text="Précédent", font = ("inter",14))
         self.btn_precedent.grid(row=1, column=0, padx=5, pady=5)
-                
+        if index_courant == 0:
+            index_courant = len(ls_employes)-1
+        else:
+            index_courant -= 1
+        texte_courant_nom = self.label._text.get()
+        self.nom.delete(0,len(texte_courant_nom))
+        self.nom.insert(ls_employes[index_courant])
+        
     def aller_au_suivant(self):
         self.btn_suivant = customtkinter.CTkButton(master=self, text="Suivant", font = ("inter",14))
         self.btn_suivant.grid(row=1, column=2, padx=5, pady=5)
-    
+        if index_courant == len(ls_employes)-1:
+            index_courant = 0
+        else:
+            index_courant += 1
+        text_courant_nom = self.label._text.get()
+        self.nom.delete(0,len(text_courant_nom))
+        self.nom.insert(ls_employes[index_courant])
+        
 
 class MyFrameModifier(customtkinter.CTkFrame):
 
@@ -76,7 +91,7 @@ class App(customtkinter.CTk):
         super().__init__()
         self.geometry("450x300")
         self.title="Liste des employés"
-        self.resizable(True, True)   #On ne peut pas changer la grandeur de la fenêtre
+        self.resizable(False, False)   #On ne peut pas changer la grandeur de la fenêtre
         self.grid_rowconfigure((0,1,2,3,4,5,6), weight=1)  # configure grid system
         self.grid_columnconfigure((0,1,2,3), weight=1)
         
@@ -85,6 +100,7 @@ class App(customtkinter.CTk):
         
         self.pour_modifier = MyFrameModifier(master=self,width=600, corner_radius=0)
         self.pour_modifier.grid(row=6, column=0, padx=30, pady=2 , sticky="EW")
+        
 
 app = App()
 
