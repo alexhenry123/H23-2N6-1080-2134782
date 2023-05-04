@@ -62,7 +62,7 @@ class MyFrameChoisir(customtkinter.CTkFrame):
         # CTkTextbox pour ta play liste
         self.ta_play_liste = customtkinter.CTkTextbox(self,
                             width=640,
-                            height=200, state="disabled")
+                            height=200, state="normal")
         self.ta_play_liste.grid(row=6, column=1,
                             columnspan=2, padx=100,
                             pady=20)
@@ -72,11 +72,27 @@ class MyFrameChoisir(customtkinter.CTkFrame):
         text="Il y a présentement 0 chansons dans ta play liste",font = ("inter",16),width=580,
                                height=25)
         self.lbl_nb_chansons.grid(row=7, column=1,
-                                    padx=50, pady=5,sticky="ew")  #enlevé sticky="ew"
+                                    padx=50, pady=5)
+        
+        #Instanciation d'un nouveau label pour message lors d'un ajout de chanson dans la liste de chansons
+        self.label_ajout_chanson = self.label_ajout_chanson = customtkinter.CTkLabel(self,
+        text=" ",font = ("inter",16),width=580,
+                               height=25)
 
     # Pour ajouter la chanson sélectionnée à la play liste
     def ajouter(self):
-        pass
+        if len(self.ls_chansons) < 5:
+            for chanson in self.ls_chansons:
+                if self.choix_chansons.get() != chanson:          
+                    self.ta_play_liste = customtkinter.CTkTextbox(self,
+                        width=640,
+                        height=200, state="normal")         
+                    self.ls_chansons.append(chanson)
+                    self.ta_play_liste = customtkinter.CTkTextbox(self,
+                        width=640,
+                        height=200, state="disabled")
+                    self.label_ajout_chanson.configure(f"La chanson {chanson} a été ajoutée à la liste de chansons.")
+                    
 
            
 class App(customtkinter.CTk):

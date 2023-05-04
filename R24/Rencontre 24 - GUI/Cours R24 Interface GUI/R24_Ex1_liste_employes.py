@@ -1,8 +1,4 @@
-from ast import Delete
-from distutils.cmd import Command
-from operator import index, truediv
 import customtkinter
-import time
 
 class MyFrameAfficher(customtkinter.CTkFrame):
     def __init__(self, master, **kwargs):
@@ -53,16 +49,16 @@ class MyFrameModifier(customtkinter.CTkFrame):
         self.grid_columnconfigure((0,1,2), weight=1)
         
         # add widgets onto the frame...
-        self.label = customtkinter.CTkLabel(self, text="Ajouter/Enlever un employé")
+        self.label = customtkinter.CTkLabel(master=self, text="Ajouter/Enlever un employé")
         self.label.grid(row=0, column=1, padx=5, pady=5)
        
         self.btn_ajouter = customtkinter.CTkButton(master=self, text="Ajouter", command=self.ajouter, font = ("inter",14))
         self.btn_ajouter.grid(row=1, column=1, padx=5, pady=5)
         
-        self.nouveau_nom = customtkinter.CTkEntry(master=self, placeholder_text="Entrez un nom d'employé",width=400,font = ("inter",14))
+        self.nouveau_nom = customtkinter.CTkEntry(master=self, placeholder_text="Entrez un nom d'employé",width=400,font = ("inter",14),  )
         self.nouveau_nom.grid(row=2, column=1, padx=5, pady=5, columnspan=1, sticky="nsew")  
         
-        self.avertissement = customtkinter.CTkLabel(self, text=" ",command=self.enlever, width=180 )
+        self.avertissement = customtkinter.CTkLabel(master=self, text=" ", width=180,font = ("inter",14),state="disabled",command=self.enlever )
         self.avertissement.grid(row=3, column=1, padx=5, pady=5)
         
         self.btn_enlever = customtkinter.CTkButton(master=self, text="Enlever",command=self.enlever, font = ("inter",14))
@@ -80,7 +76,7 @@ class MyFrameModifier(customtkinter.CTkFrame):
             else:
                 self.avertissement.configure(f"Le nom '{self.nouveau_nom.get()}' est un nom invalide car il n'est pas assez long.")
         except:
-            self.avertissement.configure("Le nom entré doit être un string.")
+            self.avertissement.configure(f"Le nom entré doit être un string.")
      
     def enlever(self):
         try:
@@ -94,7 +90,7 @@ class MyFrameModifier(customtkinter.CTkFrame):
             else:
                 return self.avertissement.configure(f"Le nom '{self.nouveau_nom.get()}' est un nom invalide car il n'est pas assez long.")
         except:
-            self.avertissement.configure("Le nom entré doit être un string.")
+            self.avertissement.configure(f"Le nom entré doit être un string.")
             
 class App(customtkinter.CTk):
     global ls_employes
