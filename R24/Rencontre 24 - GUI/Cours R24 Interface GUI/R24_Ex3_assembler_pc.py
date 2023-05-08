@@ -85,7 +85,7 @@ class App(ctk.CTk):
         self.btn_estimer = ctk.CTkButton(self,
                                         text="Obtenir estimé",
                                         width=200,
-                               height=25)
+                               height=25,command=self.estimer)
         self.btn_estimer.grid(row=3, column=1,
                                          padx=60,
                                         pady=(0,5), sticky="w")
@@ -96,11 +96,15 @@ class App(ctk.CTk):
                                     text="Commence par choisir tes composantes",width=200,
                                height=25)
         self.lbl_message.grid(row=4, column=1,
-                                padx=5,pady=(0,5) ,sticky="ew")  #enlever sticky="ew"
-    # Pour obtenir un estimé
+                                padx=5,pady=(0,5))
+     # Pour obtenir un estimé
     def estimer(self):
-        pass             
-
+          if self.choix_processeur.get() == "Choisis ton processeur":
+               self.lbl_message.configure(text="Tu dois choisir un processeur.")
+          elif self.choix_carte_graphique.get() == "Choisis ta carte graphique":
+               self.lbl_message.configure(text="Tu dois choisir une carte graphique.")
+          elif self.choix_RAM.get() == "Choisis ta RAM":
+               self.lbl_message.configure(text="Tu dois choisir une barre RAM.")
 
 if __name__ == "__main__":
     app = App()

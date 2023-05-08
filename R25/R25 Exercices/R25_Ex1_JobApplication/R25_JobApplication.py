@@ -1,7 +1,7 @@
 import customtkinter as ctk
 import tkinter as tk
 import os
-from PIL import ImageTk, Image   #il faut installer pillow  (pip install pillow)
+from PIL import ImageTk, Image
 
 ctk.set_appearance_mode("System")
 
@@ -199,10 +199,9 @@ class App(ctk.CTk):
 
     # Voir ÉNONCÉ
     def resumer(self):
-        pass
+        self.txt_resume.delete("0.0","end")
 
     # Voir ÉNONCÉ
-
     def creer_resume(self):
         pass
 

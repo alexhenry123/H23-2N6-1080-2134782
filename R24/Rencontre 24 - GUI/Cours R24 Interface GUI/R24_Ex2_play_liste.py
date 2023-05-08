@@ -1,5 +1,6 @@
 # Programme pour créer un 
 # GUI avec le module customtkinter 
+from optparse import Values
 import customtkinter
 import tkinter as tk
 
@@ -53,8 +54,7 @@ class MyFrameChoisir(customtkinter.CTkFrame):
         # CTkButton Ajouter à ta liste
         self.btn_Ajouter = customtkinter.CTkButton(self,
                             text="Ajouter à la liste",
-                            width=580,
-                               height=25)
+                            width=580, height=25,command=self.ajouter)
         self.btn_Ajouter.grid(row=5, column=1,
                             columnspan=2, padx=100,
                             pady=5, sticky="w")
@@ -69,32 +69,26 @@ class MyFrameChoisir(customtkinter.CTkFrame):
   
         # CTkLabel pour message pour le nombre de chansons ajoutées
         self.lbl_nb_chansons = customtkinter.CTkLabel(self,
-        text="Il y a présentement 0 chansons dans ta play liste",font = ("inter",16),width=580,
+        text="Il y a présentement 0 chanson dans ta play liste",font = ("inter",16),width=580,
                                height=25)
         self.lbl_nb_chansons.grid(row=7, column=1,
                                     padx=50, pady=5)
         
         #Instanciation d'un nouveau label pour message lors d'un ajout de chanson dans la liste de chansons
-        self.label_ajout_chanson = self.label_ajout_chanson = customtkinter.CTkLabel(self,
+        self.label_ajout_chanson = customtkinter.CTkLabel(self,
         text=" ",font = ("inter",16),width=580,
                                height=25)
+        self.label_ajout_chanson.grid(row=7,column=1, padx=50, pady=5)
 
     # Pour ajouter la chanson sélectionnée à la play liste
     def ajouter(self):
         if len(self.ls_chansons) < 5:
-            for chanson in self.ls_chansons:
-                if self.choix_chansons.get() != chanson:          
-                    self.ta_play_liste = customtkinter.CTkTextbox(self,
-                        width=640,
-                        height=200, state="normal")         
-                    self.ls_chansons.append(chanson)
-                    self.ta_play_liste = customtkinter.CTkTextbox(self,
-                        width=640,
-                        height=200, state="disabled")
-                    self.label_ajout_chanson.configure(f"La chanson {chanson} a été ajoutée à la liste de chansons.")
-                    
-
-           
+            if self.choix_chansons.get() not in self.ls_chansons:          
+                self.ta_play_liste.configure(state="normal")
+                self.ls_chansons.append(self.choix_chansons.get())
+                self.ta_play_liste.configure(state="disabled")
+                self.label_ajout_chanson.configure(f"La chanson {self.choix_chansons.get()} a été ajoutée à la liste de chansons.")
+                
 class App(customtkinter.CTk):
          
     def __init__(self):
@@ -115,10 +109,10 @@ class App(customtkinter.CTk):
         self.grid_rowconfigure((0,1,2,3,4,5,6), weight=1)  # configure grid system
         self.grid_columnconfigure((0,1,2,3), weight=1)
         
-         
         self.pour_choisir = MyFrameChoisir(master=self,width=600, corner_radius=0)
         self.pour_choisir.grid(row=0, column=0, padx=2, pady=2)
         
-
 app = App()
 app.mainloop()
+
+    
