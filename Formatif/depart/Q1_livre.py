@@ -9,5 +9,6 @@ class Livre:
 livre_exemple = Livre("L'Alchimiste","Paulo Coelho","1988")
 print(livre_exemple.obtenir_info()) 
 
-
 # devrait imprimer "L'Alchimiste par Paulo Coelho publié en 1988." dans le terminal
+
+
