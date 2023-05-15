@@ -11,14 +11,14 @@ class Patient:
         self.poids = poids          #en kilogrammes
         self.age = age
         self.num_telephone = num_telephone
-
+        self.grandeur_pouces = round((grandeur / 2.54), 2)
+        self.poids_livres = round((poids * 2.20462), 2)
 
 
 patient_1 = Patient("Anneth Yull", 163, 52, 47, "514-116-9595")
-print()
+
 print(f'  {patient_1.nom} a {patient_1.age} ans, mesure {patient_1.grandeur}cm et pèse {patient_1.poids}Kg.')
 print(f'  {patient_1.nom} a {patient_1.age} ans, mesure {patient_1.grandeur_pouces} pouces et pèse {patient_1.poids_livres} livres.')
-print()
 
 # Ces lignes devront produire les résultats :
     #   Anneth Yull a 47 ans, mesure 163cm et pèse 52Kg.
